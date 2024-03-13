@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <form method="POST" class="col-md-6 offset-md-3">
+            <h3 class="text-center">Sign Up</h3>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your First Name">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+                <label for="password">Password(Confirm)</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm The Password">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+{% endblock %}
