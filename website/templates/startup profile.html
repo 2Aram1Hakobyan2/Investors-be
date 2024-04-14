@@ -1,0 +1,606 @@
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/darkmode-js/css/darkmode.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js"></script>
+    <script src="mysrc.js"></script>
+    <style>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            color: #000; 
+            height: 2390px;
+        }
+        header {
+            background-color: #6a5acd; 
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            background-color: #fff; 
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        footer {
+           background-color: #191970; 
+            color: white;
+            text-align: center;
+            padding: -5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        nav {
+            background-color: #483d8b; /* Dark blue */
+            padding: 10px;
+            text-align: center;
+        }
+        .input-container {
+            display: inline-block; /* Display containers inline */
+            margin-right: -505px; 
+            margin-left: 0px;
+            margin-bottom: 5px; /* Adjust margin */
+            box-sizing: border-box; /* Include padding and border in the width */
+            padding: 3px;
+            width: 50%; /* Ensure the container spans the entire width */
+            text-align: left;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn {
+           background-color: #00008b; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn-sm {
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #0000cd; 
+        }
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 20%;
+            padding: 10px;
+            margin-bottom: -10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .add-button {
+            background-color: #6a5acd; /* Light purple */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            background-color: #483d8b; /* Dark blue */
+        }
+        .contact-section {
+            border: 2px solid #6a5acd; /* Light purple */
+            border-radius: 5px;
+            padding: 5px;
+            display: inline-block;
+        } 
+        .submit-btn {
+            background-color: #191970; /* Midnight blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #001ca6; 
+        }
+         #city1{
+            text-align: left;
+            margin-left: -40px;
+        }
+        #citySelect1{
+            margin-left: -40px;
+        }
+        #investors-container input[type="text"] {
+            width: 10%;
+            margin-right: 5px;
+            margin-top: 10px; 
+        }
+        .add-button {
+            margin-top: 10px; 
+        }
+    </style>
+    </head>
+<body>
+
+<header>
+    <h1>Startup Form</h1>
+    <button class="btn btn-sm" onclick="toggleMode()">Toggle Mode</button>
+</header>
+
+<nav>
+    <a href="#about" class="btn">About</a>
+    <a href="#business" class="btn">Business</a>
+    <a href="#team" class="btn">Team</a>
+    <a href="#investors" class="btn">Investors</a>
+</nav>
+
+<section id="about">
+    <h2>About</h2>
+    <form>
+        <div class="input-container">
+        <label class="form-label" for="startupName">Name:</label>
+        <input type="text" id="startuptName" name="startupName" class="form-input" style.margin-buttom= "5px"><br><br>
+        </div>
+
+        <label class="form-label" for="logo">Logo:</label>
+        <input type="file" id="logo" name="logo"><br><br>
+
+        <label class="form-label" for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50" class="form-input"></textarea><br><br>
+
+        <div class="input-container">
+        <label class="form-label" for="countrySelect">Country:</label>
+        <select id="countrySelect" name="countrySelect" class="form-input" onchange="populateCities()">
+            <option value="">Select Country</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+            <option value="Bahamas">Bahamas</option>
+            <option value="Bahrain">Bahrain</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Barbados">Barbados</option>
+            <option value="Belarus">Belarus</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Belize">Belize</option>
+            <option value="Benin">Benin</option>
+            <option value="Bhutan">Bhutan</option>
+            <option value="Bolivia">Bolivia</option>
+            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+            <option value="Botswana">Botswana</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Brunei Darussalam">Brunei Darussalam</option>
+            <option value="Bulgaria">Bulgaria</option>
+            <option value="Burkina Faso">Burkina Faso</option>
+            <option value="Burundi">Burundi</option>
+            <option value="Cabo Verde">Cabo Verde</option>
+            <option value="Cambodia">Cambodia</option>
+            <option value="Cameroon">Cameroon</option>
+            <option value="Canada">Canada</option>
+            <option value="Central African Republic">Central African Republic</option>
+            <option value="Chad">Chad</option>
+            <option value="Chile">Chile</option>
+            <option value="China">China</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Comoros">Comoros</option>
+            <option value="Congo">Congo</option>
+            <option value="Costa Rica">Costa Rica</option>
+            <option value="Côte D'Ivoire">Côte D'Ivoire</option>
+            <option value="Croatia">Croatia</option>
+            <option value="Cuba">Cuba</option>
+            <option value="Cyprus">Cyprus</option>
+            <option value="Czechia">Czechia</option>
+            <option value="Democratic People's Republic of Korea">Democratic People's Republic of Korea</option>
+            <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Djibouti">Djibouti</option>
+            <option value="Dominica">Dominica</option>
+            <option value="Dominican Republic">Dominican Republic</option>
+            <option value="Ecuador">Ecuador</option>
+            <option value="Egypt">Egypt</option>
+            <option value="El Salvador">El Salvador</option>
+            <option value="Equatorial Guinea">Equatorial Guinea</option>
+            <option value="Eritrea">Eritrea</option>
+            <option value="Estonia">Estonia</option>
+            <option value="Eswatini">Eswatini</option>
+            <option value="Ethiopia">Ethiopia</option>
+            <option value="Fiji">Fiji</option>
+            <option value="Finland">Finland</option>
+            <option value="France">France</option>
+            <option value="Gabon">Gabon</option>
+            <option value="Gambia">Gambia</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Germany">Germany</option>
+            <option value="Ghana">Ghana</option>
+            <option value="Greece">Greece</option>
+            <option value="Grenada">Grenada</option>
+            <option value="Guatemala">Guatemala</option>
+            <option value="Guinea">Guinea</option>
+            <option value="Guinea Bissau">Guinea Bissau</option>
+            <option value="Guyana">Guyana</option>
+            <option value="Haiti">Haiti</option>
+            <option value="Honduras">Honduras</option>
+            <option value="Hungary">Hungary</option>
+            <option value="Iceland">Iceland</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Iran">Iran</option>
+            <option value="Iraq">Iraq</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Israel">Israel</option>
+            <option value="Italy">Italy</option>
+            <option value="Jamaica">Jamaica</option>
+            <option value="Japan">Japan</option>
+            <option value="Jordan">Jordan</option>
+            <option value="Kazakhstan">Kazakhstan</option>
+            <option value="Kenya">Kenya</option>
+            <option value="Kiribati">Kiribati</option>
+            <option value="Kuwait">Kuwait</option>
+            <option value="Kyrgyzstan">Kyrgyzstan</option>
+            <option value="Lao People’s Democratic Republic">Lao People’s Democratic Republic</option>
+            <option value="Latvia">Latvia</option>
+            <option value="Lebanon">Lebanon</option>
+            <option value="Lesotho">Lesotho</option>
+            <option value="Liberia">Liberia</option>
+            <option value="Libya">Libya</option>
+            <option value="Liechtenstein">Liechtenstein</option>
+            <option value="Lithuania">Lithuania</option>
+            <option value="Luxembourg">Luxembourg</option>
+            <option value="Madagascar">Madagascar</option>
+            <option value="Malawi">Malawi</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Maldives">Maldives</option>
+            <option value="Mali">Mali</option>
+            <option value="Malta">Malta</option>
+            <option value="Marshall Islands">Marshall Islands</option>
+            <option value="Mauritania">Mauritania</option>
+            <option value="Mauritius">Mauritius</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Micronesia">Micronesia</option>
+            <option value="Monaco">Monaco</option>
+            <option value="Mongolia">Mongolia</option>
+            <option value="Montenegro">Montenegro</option>
+            <option value="Morocco">Morocco</option>
+            <option value="Mozambique">Mozambique</option>
+            <option value="Myanmar">Myanmar</option>
+            <option value="Namibia">Namibia</option>
+            <option value="Nauru">Nauru</option>
+            <option value="Nepal">Nepal</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Nicaragua">Nicaragua</option>
+            <option value="Niger">Niger</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="North Macedonia">North Macedonia</option>
+            <option value="Norway">Norway</option>
+            <option value="Oman">Oman</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Palau">Palau</option>
+            <option value="Panama">Panama</option>
+            <option value="Papua New Guinea">Papua New Guinea</option>
+            <option value="Paraguay">Paraguay</option>
+            <option value="Peru">Peru</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Poland">Poland</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Qatar">Qatar</option>
+            <option value="Republic of Korea">Republic of Korea</option>
+            <option value="Republic of Moldova">Republic of Moldova</option>
+            <option value="Romania">Romania</option>
+            <option value="Russia">Russia</option>
+            <option value="Rwanda">Rwanda</option>
+            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+            <option value="Saint Lucia">Saint Lucia</option>
+            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+            <option value="Samoa">Samoa</option>
+            <option value="San Marino">San Marino</option>
+            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+            <option value="Saudi Arabia">Saudi Arabia</option>
+            <option value="Senegal">Senegal</option>
+            <option value="Serbia">Serbia</option>
+            <option value="Seychelles">Seychelles</option>
+            <option value="Sierra Leone">Sierra Leone</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Slovakia">Slovakia</option>
+            <option value="Slovenia">Slovenia</option>
+            <option value="Solomon Islands">Solomon Islands</option>
+            <option value="Somalia">Somalia</option>
+            <option value="South Africa">South Africa</option>
+            <option value="South Sudan">South Sudan</option>
+            <option value="Spain">Spain</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Sudan">Sudan</option>
+            <option value="Suriname">Suriname</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+            <option value="Tajikistan">Tajikistan</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Timor-Leste">Timor-Leste</option>
+            <option value="Togo">Togo</option>
+            <option value="Tonga">Tonga</option>
+            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+            <option value="Tunisia">Tunisia</option>
+            <option value="Türkiye">Türkiye</option>
+            <option value="Turkmenistan">Turkmenistan</option>
+            <option value="Tuvalu">Tuvalu</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Ukraine">Ukraine</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="United Kingdom(UK)">United Kingdom(UK)</option>
+            <option value="United Republic of Tanzania">United Republic of Tanzania</option>
+            <option value="United States of America(USA)">United States of America(USA)</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Uzbekistan">Uzbekistan</option>
+            <option value="Vanuatu">Vanuatu</option>
+            <option value="Venezuela">Venezuela</option>
+            <option value="Viet Nam">Viet Nam</option>
+            <option value="Yemen">Yemen</option>
+            <option value="Zambia">Zambia</option>
+            <option value="Zimbabwe">Zimbabwe</option>
+        </select>
+        </div>
+
+
+         <div class="input-container">
+         <label class="form-label" for="citySelect" id="city1">City:</label>
+            <select id="citySelect1" name="citySelect" class="form-input">
+                <option value="">Select City</option>
+            </select>
+    
+
+        <script>
+            function populateCities() {
+            var countrySelect = document.getElementById("countrySelect");
+            var citySelect = document.getElementById("citySelect1");
+
+            // Clear previous city options
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            // Get the selected country
+            var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
+            city(selectedCountry, citySelect)
+            
+    }
+        </script>
+        </div>
+
+</section>
+
+<section id="business">
+    <h2>Business</h2>
+    <form>
+        <label class="form-label" for="productDescription">Product Description:</label>
+        <textarea id="productDescription" name="productDescription" class="form-input"></textarea><br><br>
+
+        <label class="form-label" for="videoLink">Video Link:</label>
+        <input type="text" id="videoLink" name="videoLink" class="form-input"><br><br>
+
+        <label class="form-label" for="marketDescription">Market Description:</label>
+        <textarea id="marketDescription" name="marketDescription" class="form-input"></textarea><br><br>
+    </form>
+</section>
+
+<section id="team">
+    <h2>Team</h2>
+    <form>
+        <label class="form-label" for="founders">Founders:</label>
+    <div id="founders-container">
+        <input type="email" id="founderEmail" name="founderEmail" placeholder="Enter founder's email" class="form-input"><br><br><br>
+
+        <button type="button" onclick="sendInvitation()" class="add-button">Send Invitation</button><br><br>
+    </div>
+
+        <label class="form-label" for="advisors">Advisors:</label>
+    <div id="advisors-container">
+        <input type="text" id="advisor1" name="advisor1" class="form-input"><br><br>
+    </div>
+        <button type="button" onclick="addAdvisor()" class="add-button">Add More</button><br><br>
+
+        <label class="form-label" for="employees">Employees:</label>
+    <div id="employees-container">
+        <input type="text" id="employee1" name="employee1" class="form-input"><br><br>
+    </div>
+        <button type="button" onclick="addEmployee()" class="add-button">Add More</button><br><br>
+
+        <label class="form-label" for="investors">Investors:</label>
+    <div id="investors-container">
+        <input type="text" id="investor1" name="investor1" class="form-input"><br><br>
+    </div>
+        <button type="button" onclick="addInvestor()" class="add-button">Add More</button><br><br>
+    </form> 
+</section>
+
+<section id="investors">
+    <h2>For Investors</h2>
+    <form id="investorsForm">
+        <label class="form-label" for="raisingAmount">Amount Raising (Target, Equity):</label>
+        <input type="text" id="raisingAmount" name="raisingAmount" placeholder="Target ($)" style="width: 150px;" class="form-input">
+        <input type="text" id="equity" name="equity" placeholder="Equity (%)" style="width: 150px;" class="form-input"><br><br><br>
+
+        <label class="form-label" for="pitchDeck">Pitch Deck (Upload PPT/PDF):</label>
+        <input type="file" id="pitchDeck" name="pitchDeck"><br><br>
+
+        <label class="form-label" for="youtubeLink">Pitch Deck (YouTube Link, optional):</label>
+        <input type="text" id="youtubeLink" name="youtubeLink" class="form-input"><br><br>
+
+        <label class="form-label" for="financialProjection">Financial Projection (Upload XLS):</label>
+        <input type="file" id="financialProjection" name="financialProjection" style="width: 250px;"><br><br>
+    </form>
+</section>
+
+<footer>
+    <p class="btn-sm contact-section">Contact us: contact@example.com</p>
+    <button type="button" class="btn" onclick="submitForm()">Submit</button>
+</footer>
+
+<script>
+     function toggleMode() {
+        const options = {
+            bottom: '100px', 
+            right: '0px', 
+            left: 'unset', 
+            time: '0.3s', 
+            mixColor: '#fff', 
+            backgroundColor: '#fff',  
+            buttonColorDark: '#100f2c',  
+            buttonColorLight: '#fff', 
+            saveInCookies: true, 
+            label: '🌓', 
+            autoMatchOsTheme: true 
+        }
+
+        new Darkmode(options).showWidget();
+    }
+
+    class About {
+        constructor(name, logo, description, country) {
+            this.name = name;
+            this.logo = logo;
+            this.description = description;
+            this.country = country;
+        }
+    }
+
+    class Business {
+        constructor(productDescription, videoLinks, marketDescription) {
+            this.productDescription = productDescription;
+            this.videoLinks = videoLinks;
+            this.marketDescription = marketDescription;
+        }
+    }
+
+    class Team {
+        constructor(founders, advisors, employees, investors) {
+            this.founders = founders;
+            this.advisors = advisors;
+            this.employees = employees;
+            this.investors = investors;
+        }
+    }
+
+    class Investors {
+        constructor(raisingAmount, equity, pitchDeck, youtubeLink, financialProjection) {
+            this.raisingAmount = raisingAmount;
+            this.equity = equity;
+            this.pitchDeck = pitchDeck;
+            this.youtubeLink = youtubeLink;
+            this.financialProjection = financialProjection;
+        }
+    }
+
+
+    var advisorCount = 1;
+    var employeeCount = 1;
+    var investorCount = 1;
+
+    function addAdvisor() {
+        advisorCount++;
+        var advisorsContainer = document.getElementById('advisors-container');
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.id = 'advisor' + advisorCount;
+        newInput.name = 'advisor' + advisorCount;
+        newInput.placeholder = 'Advisor ' + advisorCount;
+        newInput.style.marginTop = '10px';
+        newInput.style.width = "10%";
+        newInput.style.marginRight = '5px';
+        advisorsContainer.appendChild(newInput);
+    }
+
+    function addEmployee() {
+        employeeCount++;
+        var employeesContainer = document.getElementById('employees-container');
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.id = 'employee' + employeeCount;
+        newInput.name = 'employee' + employeeCount;
+        newInput.placeholder = 'Employee ' + employeeCount;
+        newInput.style.marginTop = '10px';
+        newInput.style.width = "10%";
+        newInput.style.marginRight = '5px';
+        employeesContainer.appendChild(newInput);
+    }
+    
+    function addInvestor() {
+        investorCount++;
+        var investorsContainer = document.getElementById('investors-container');
+        var newInput = document.createElement('input');
+        newInput.type = 'text';
+        newInput.id = 'investor' + investorCount;
+        newInput.name = 'investor' + investorCount;
+        newInput.placeholder = 'Investor ' + investorCount;
+        newInput.style.marginTop = '20px';
+        newInput.style.width = "10%";
+        newInput.style.marginRight = '5px';
+        investorsContainer.appendChild(newInput);
+    }
+
+    function submitForm() {
+        var about = new About(
+            document.getElementById('startupName').value,
+            document.getElementById('logo').value,
+            document.getElementById('description').value,
+            document.getElementById('country').value
+        );
+
+        var business = new Business(
+            document.getElementById('productDescription').value,
+            document.getElementById('videoLinks').value,
+            document.getElementById('marketDescription').value
+        );
+
+        var team = new Team(
+            document.getElementById('founderEmail').value,
+            document.getElementById('advisor1').value,
+            document.getElementById('employee1').value,
+            document.getElementById('investor1').value
+        );
+
+        var investors = new Investors(
+            document.getElementById('raisingAmount').value,
+            document.getElementById('equity').value,
+            document.getElementById('pitchDeck').value,
+            document.getElementById('youtubeLink').value,
+            document.getElementById('financialProjection').value
+        );
+
+        localStorage.setItem('about', JSON.stringify(about));
+        localStorage.setItem('business', JSON.stringify(business));
+        localStorage.setItem('team', JSON.stringify(team));
+        localStorage.setItem('investors', JSON.stringify(investors));
+
+        window.location.href = 'profile.html';
+    }
+</script>
+
+</body>
+</html>
