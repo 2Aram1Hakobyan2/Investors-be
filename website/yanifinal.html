@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <a href="/" class="home-button">Home</a>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
@@ -41,13 +42,13 @@
         #lastName{
             margin-left: -50px;
             text-align: left;
-            
+
         }
         #lastnameid{
             text-align: left;
             margin-left: -45px;
         }
-    
+
         #city1{
             text-align: left;
             margin-left: -45px;
@@ -77,7 +78,7 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-        
+
         #currentlyWorkHere {
             display: inline-block;
             vertical-align: middle;
@@ -160,7 +161,7 @@
             margin-left: -50px;
         }
     </style>
-    
+
 
 </head>
 <body>
@@ -175,17 +176,16 @@
     <form>
         <div class="input-container">
         <label class="form-label" for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" class="form-input"><br>
+        <input type="text" id="firstName" name="firstName" class="form-input" value="{{ user.first_name }}" readonly><br>
         </div>
 
         <div class="input-container">
-        <label class="form-label" for="lastName" id="lastnameid">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" class="form-input"><br>
-       </div>
-    
+            <label class="form-label" for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="form-input"><br>
+        </div>
 
         <label class="form-label" for="about">About:</label>
-        <textarea id="aboutlabel" name="about" class="form-input"></textarea><br>
+        <textarea id="about" name="about" class="form-input"></textarea><br>
 
         <label class="form-label" for="birthday">Birthday:</label>
         <input type="date" id="birthday" name="birthday" class="form-input"><br>
@@ -196,236 +196,39 @@
             <option value="female">Female</option>
             <option value="other">Other</option>
         </select><br>
-     
+
         <div class="input-container">
-        <label class="form-label" for="countrySelect">Country:</label>
-        <select id="countrySelect" name="countrySelect" class="form-input" onchange="populateCities()">
-            <option value="">Select Country</option>
-            <option value="Afghanistan">Afghanistan</option>
-            <option value="Albania">Albania</option>
-            <option value="Algeria">Algeria</option>
-            <option value="Andorra">Andorra</option>
-            <option value="Angola">Angola</option>
-            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-            <option value="Argentina">Argentina</option>
-            <option value="Armenia">Armenia</option>
-            <option value="Australia">Australia</option>
-            <option value="Austria">Austria</option>
-            <option value="Azerbaijan">Azerbaijan</option>
-            <option value="Bahamas">Bahamas</option>
-            <option value="Bahrain">Bahrain</option>
-            <option value="Bangladesh">Bangladesh</option>
-            <option value="Barbados">Barbados</option>
-            <option value="Belarus">Belarus</option>
-            <option value="Belgium">Belgium</option>
-            <option value="Belize">Belize</option>
-            <option value="Benin">Benin</option>
-            <option value="Bhutan">Bhutan</option>
-            <option value="Bolivia">Bolivia</option>
-            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-            <option value="Botswana">Botswana</option>
-            <option value="Brazil">Brazil</option>
-            <option value="Brunei Darussalam">Brunei Darussalam</option>
-            <option value="Bulgaria">Bulgaria</option>
-            <option value="Burkina Faso">Burkina Faso</option>
-            <option value="Burundi">Burundi</option>
-            <option value="Cabo Verde">Cabo Verde</option>
-            <option value="Cambodia">Cambodia</option>
-            <option value="Cameroon">Cameroon</option>
-            <option value="Canada">Canada</option>
-            <option value="Central African Republic">Central African Republic</option>
-            <option value="Chad">Chad</option>
-            <option value="Chile">Chile</option>
-            <option value="China">China</option>
-            <option value="Colombia">Colombia</option>
-            <option value="Comoros">Comoros</option>
-            <option value="Congo">Congo</option>
-            <option value="Costa Rica">Costa Rica</option>
-            <option value="Côte D'Ivoire">Côte D'Ivoire</option>
-            <option value="Croatia">Croatia</option>
-            <option value="Cuba">Cuba</option>
-            <option value="Cyprus">Cyprus</option>
-            <option value="Czechia">Czechia</option>
-            <option value="Democratic People's Republic of Korea">Democratic People's Republic of Korea</option>
-            <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
-            <option value="Denmark">Denmark</option>
-            <option value="Djibouti">Djibouti</option>
-            <option value="Dominica">Dominica</option>
-            <option value="Dominican Republic">Dominican Republic</option>
-            <option value="Ecuador">Ecuador</option>
-            <option value="Egypt">Egypt</option>
-            <option value="El Salvador">El Salvador</option>
-            <option value="Equatorial Guinea">Equatorial Guinea</option>
-            <option value="Eritrea">Eritrea</option>
-            <option value="Estonia">Estonia</option>
-            <option value="Eswatini">Eswatini</option>
-            <option value="Ethiopia">Ethiopia</option>
-            <option value="Fiji">Fiji</option>
-            <option value="Finland">Finland</option>
-            <option value="France">France</option>
-            <option value="Gabon">Gabon</option>
-            <option value="Gambia">Gambia</option>
-            <option value="Georgia">Georgia</option>
-            <option value="Germany">Germany</option>
-            <option value="Ghana">Ghana</option>
-            <option value="Greece">Greece</option>
-            <option value="Grenada">Grenada</option>
-            <option value="Guatemala">Guatemala</option>
-            <option value="Guinea">Guinea</option>
-            <option value="Guinea Bissau">Guinea Bissau</option>
-            <option value="Guyana">Guyana</option>
-            <option value="Haiti">Haiti</option>
-            <option value="Honduras">Honduras</option>
-            <option value="Hungary">Hungary</option>
-            <option value="Iceland">Iceland</option>
-            <option value="India">India</option>
-            <option value="Indonesia">Indonesia</option>
-            <option value="Iran">Iran</option>
-            <option value="Iraq">Iraq</option>
-            <option value="Ireland">Ireland</option>
-            <option value="Israel">Israel</option>
-            <option value="Italy">Italy</option>
-            <option value="Jamaica">Jamaica</option>
-            <option value="Japan">Japan</option>
-            <option value="Jordan">Jordan</option>
-            <option value="Kazakhstan">Kazakhstan</option>
-            <option value="Kenya">Kenya</option>
-            <option value="Kiribati">Kiribati</option>
-            <option value="Kuwait">Kuwait</option>
-            <option value="Kyrgyzstan">Kyrgyzstan</option>
-            <option value="Lao People’s Democratic Republic">Lao People’s Democratic Republic</option>
-            <option value="Latvia">Latvia</option>
-            <option value="Lebanon">Lebanon</option>
-            <option value="Lesotho">Lesotho</option>
-            <option value="Liberia">Liberia</option>
-            <option value="Libya">Libya</option>
-            <option value="Liechtenstein">Liechtenstein</option>
-            <option value="Lithuania">Lithuania</option>
-            <option value="Luxembourg">Luxembourg</option>
-            <option value="Madagascar">Madagascar</option>
-            <option value="Malawi">Malawi</option>
-            <option value="Malaysia">Malaysia</option>
-            <option value="Maldives">Maldives</option>
-            <option value="Mali">Mali</option>
-            <option value="Malta">Malta</option>
-            <option value="Marshall Islands">Marshall Islands</option>
-            <option value="Mauritania">Mauritania</option>
-            <option value="Mauritius">Mauritius</option>
-            <option value="Mexico">Mexico</option>
-            <option value="Micronesia">Micronesia</option>
-            <option value="Monaco">Monaco</option>
-            <option value="Mongolia">Mongolia</option>
-            <option value="Montenegro">Montenegro</option>
-            <option value="Morocco">Morocco</option>
-            <option value="Mozambique">Mozambique</option>
-            <option value="Myanmar">Myanmar</option>
-            <option value="Namibia">Namibia</option>
-            <option value="Nauru">Nauru</option>
-            <option value="Nepal">Nepal</option>
-            <option value="Netherlands">Netherlands</option>
-            <option value="New Zealand">New Zealand</option>
-            <option value="Nicaragua">Nicaragua</option>
-            <option value="Niger">Niger</option>
-            <option value="Nigeria">Nigeria</option>
-            <option value="North Macedonia">North Macedonia</option>
-            <option value="Norway">Norway</option>
-            <option value="Oman">Oman</option>
-            <option value="Pakistan">Pakistan</option>
-            <option value="Palau">Palau</option>
-            <option value="Panama">Panama</option>
-            <option value="Papua New Guinea">Papua New Guinea</option>
-            <option value="Paraguay">Paraguay</option>
-            <option value="Peru">Peru</option>
-            <option value="Philippines">Philippines</option>
-            <option value="Poland">Poland</option>
-            <option value="Portugal">Portugal</option>
-            <option value="Qatar">Qatar</option>
-            <option value="Republic of Korea">Republic of Korea</option>
-            <option value="Republic of Moldova">Republic of Moldova</option>
-            <option value="Romania">Romania</option>
-            <option value="Russia">Russia</option>
-            <option value="Rwanda">Rwanda</option>
-            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-            <option value="Saint Lucia">Saint Lucia</option>
-            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-            <option value="Samoa">Samoa</option>
-            <option value="San Marino">San Marino</option>
-            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-            <option value="Saudi Arabia">Saudi Arabia</option>
-            <option value="Senegal">Senegal</option>
-            <option value="Serbia">Serbia</option>
-            <option value="Seychelles">Seychelles</option>
-            <option value="Sierra Leone">Sierra Leone</option>
-            <option value="Singapore">Singapore</option>
-            <option value="Slovakia">Slovakia</option>
-            <option value="Slovenia">Slovenia</option>
-            <option value="Solomon Islands">Solomon Islands</option>
-            <option value="Somalia">Somalia</option>
-            <option value="South Africa">South Africa</option>
-            <option value="South Sudan">South Sudan</option>
-            <option value="Spain">Spain</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Sudan">Sudan</option>
-            <option value="Suriname">Suriname</option>
-            <option value="Sweden">Sweden</option>
-            <option value="Switzerland">Switzerland</option>
-            <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-            <option value="Tajikistan">Tajikistan</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Timor-Leste">Timor-Leste</option>
-            <option value="Togo">Togo</option>
-            <option value="Tonga">Tonga</option>
-            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-            <option value="Tunisia">Tunisia</option>
-            <option value="Türkiye">Türkiye</option>
-            <option value="Turkmenistan">Turkmenistan</option>
-            <option value="Tuvalu">Tuvalu</option>
-            <option value="Uganda">Uganda</option>
-            <option value="Ukraine">Ukraine</option>
-            <option value="United Arab Emirates">United Arab Emirates</option>
-            <option value="United Kingdom(UK)">United Kingdom(UK)</option>
-            <option value="United Republic of Tanzania">United Republic of Tanzania</option>
-            <option value="United States of America(USA)">United States of America(USA)</option>
-            <option value="Uruguay">Uruguay</option>
-            <option value="Uzbekistan">Uzbekistan</option>
-            <option value="Vanuatu">Vanuatu</option>
-            <option value="Venezuela">Venezuela</option>
-            <option value="Viet Nam">Viet Nam</option>
-            <option value="Yemen">Yemen</option>
-            <option value="Zambia">Zambia</option>
-            <option value="Zimbabwe">Zimbabwe</option>
-        </select>
-        </div>
-
-
-         <div class="input-container">
-         <label class="form-label" for="citySelect" id="city1">City:</label>
-            <select id="citySelect1" name="citySelect" class="form-input">
-                <option value="">Select City</option>
+            <label class="form-label" for="country">Country:</label>
+        <input type="text" id="country" name="country" class="form-input"><br>
+                <option value="">Select Country</option>
             </select>
-    
-
+        </div>
+        
+        <label class="form-label" for="city">City:</label>
+        <input type="text" id="city" name="city" class="form-input" onchange="populateCities()"><br>
+        
         <script>
             function populateCities() {
-            var countrySelect = document.getElementById("countrySelect");
-            var citySelect = document.getElementById("citySelect1");
-
-            // Clear previous city options
-            citySelect.innerHTML = '<option value="">Select City</option>';
-
-            // Get the selected country
-            var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
-            city(selectedCountry, citySelect)
-            
-    }
+                var countrySelect = document.getElementById("countrySelect");
+                var cityInput = document.getElementById("city");
+        
+                // Clear previous city options (not needed for text input)
+                // citySelect.innerHTML = '<option value="">Select City</option>';
+        
+                // Get the selected country
+                var selectedCountry = countrySelect.value;
+                // Call the function to populate cities with the selected country
+                city(selectedCountry, cityInput);
+            }
         </script>
-        </div>
+        
 
-        <label class="form-label" for="linkedin">LinkedIn Profile:</label>
+        <label class="form-label" for="linkedin">LinkedIn:</label>
         <input type="text" id="linkedin" name="linkedin" class="form-input"><br>
 
-        <label class="form-label" for="email">Email Address:</label>
-        <input type="email" id="email" name="email" class="form-input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+        <label class="form-label" for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-input" value="{{ user.email }}" readonly><br>
+
         <br> 
     </form>
 </section>
@@ -459,213 +262,71 @@
                 <label class="form-label" for="end" id="endlabel">End:</label>
                 <input type="date" id="end" name="end" class="form-input">
             </div><br>
-             
-             <div class="input-container">
-             <label class="form-label" for="countrySelect">Country:</label>
-             <select id="countrySelect2" name="countrySelect" class="form-input" onchange="populateCities2()">
-                <option value="">Select Country</option>
-                <option value="Afghanistan">Afghanistan</option>
-                <option value="Albania">Albania</option>
-                <option value="Algeria">Algeria</option>
-                <option value="Andorra">Andorra</option>
-                <option value="Angola">Angola</option>
-                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                <option value="Argentina">Argentina</option>
-                <option value="Armenia">Armenia</option>
-                <option value="Australia">Australia</option>
-                <option value="Austria">Austria</option>
-                <option value="Azerbaijan">Azerbaijan</option>
-                <option value="Bahamas">Bahamas</option>
-                <option value="Bahrain">Bahrain</option>
-                <option value="Bangladesh">Bangladesh</option>
-                <option value="Barbados">Barbados</option>
-                <option value="Belarus">Belarus</option>
-                <option value="Belgium">Belgium</option>
-                <option value="Belize">Belize</option>
-                <option value="Benin">Benin</option>
-                <option value="Bhutan">Bhutan</option>
-                <option value="Bolivia">Bolivia</option>
-                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                <option value="Botswana">Botswana</option>
-                <option value="Brazil">Brazil</option>
-                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                <option value="Bulgaria">Bulgaria</option>
-                <option value="Burkina Faso">Burkina Faso</option>
-                <option value="Burundi">Burundi</option>
-                <option value="Cabo Verde">Cabo Verde</option>
-                <option value="Cambodia">Cambodia</option>
-                <option value="Cameroon">Cameroon</option>
-                <option value="Canada">Canada</option>
-                <option value="Central African Republic">Central African Republic</option>
-                <option value="Chad">Chad</option>
-                <option value="Chile">Chile</option>
-                <option value="China">China</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Comoros">Comoros</option>
-                <option value="Congo">Congo</option>
-                <option value="Costa Rica">Costa Rica</option>
-                <option value="Côte D'Ivoire">Côte D'Ivoire</option>
-                <option value="Croatia">Croatia</option>
-                <option value="Cuba">Cuba</option>
-                <option value="Cyprus">Cyprus</option>
-                <option value="Czechia">Czechia</option>
-                <option value="Democratic People's Republic of Korea">Democratic People's Republic of Korea</option>
-                <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
-                <option value="Denmark">Denmark</option>
-                <option value="Djibouti">Djibouti</option>
-                <option value="Dominica">Dominica</option>
-                <option value="Dominican Republic">Dominican Republic</option>
-                <option value="Ecuador">Ecuador</option>
-                <option value="Egypt">Egypt</option>
-                <option value="El Salvador">El Salvador</option>
-                <option value="Equatorial Guinea">Equatorial Guinea</option>
-                <option value="Eritrea">Eritrea</option>
-                <option value="Estonia">Estonia</option>
-                <option value="Eswatini">Eswatini</option>
-                <option value="Ethiopia">Ethiopia</option>
-                <option value="Fiji">Fiji</option>
-                <option value="Finland">Finland</option>
-                <option value="France">France</option>
-                <option value="Gabon">Gabon</option>
-                <option value="Gambia">Gambia</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Germany">Germany</option>
-                <option value="Ghana">Ghana</option>
-                <option value="Greece">Greece</option>
-                <option value="Grenada">Grenada</option>
-                <option value="Guatemala">Guatemala</option>
-                <option value="Guinea">Guinea</option>
-                <option value="Guinea Bissau">Guinea Bissau</option>
-                <option value="Guyana">Guyana</option>
-                <option value="Haiti">Haiti</option>
-                <option value="Honduras">Honduras</option>
-                <option value="Hungary">Hungary</option>
-                <option value="Iceland">Iceland</option>
-                <option value="India">India</option>
-                <option value="Indonesia">Indonesia</option>
-                <option value="Iran">Iran</option>
-                <option value="Iraq">Iraq</option>
-                <option value="Ireland">Ireland</option>
-                <option value="Israel">Israel</option>
-                <option value="Italy">Italy</option>
-                <option value="Jamaica">Jamaica</option>
-                <option value="Japan">Japan</option>
-                <option value="Jordan">Jordan</option>
-                <option value="Kazakhstan">Kazakhstan</option>
-                <option value="Kenya">Kenya</option>
-                <option value="Kiribati">Kiribati</option>
-                <option value="Kuwait">Kuwait</option>
-                <option value="Kyrgyzstan">Kyrgyzstan</option>
-                <option value="Lao People’s Democratic Republic">Lao People’s Democratic Republic</option>
-                <option value="Latvia">Latvia</option>
-                <option value="Lebanon">Lebanon</option>
-                <option value="Lesotho">Lesotho</option>
-                <option value="Liberia">Liberia</option>
-                <option value="Libya">Libya</option>
-                <option value="Liechtenstein">Liechtenstein</option>
-                <option value="Lithuania">Lithuania</option>
-                <option value="Luxembourg">Luxembourg</option>
-                <option value="Madagascar">Madagascar</option>
-                <option value="Malawi">Malawi</option>
-                <option value="Malaysia">Malaysia</option>
-                <option value="Maldives">Maldives</option>
-                <option value="Mali">Mali</option>
-                <option value="Malta">Malta</option>
-                <option value="Marshall Islands">Marshall Islands</option>
-                <option value="Mauritania">Mauritania</option>
-                <option value="Mauritius">Mauritius</option>
-                <option value="Mexico">Mexico</option>
-                <option value="Micronesia">Micronesia</option>
-                <option value="Monaco">Monaco</option>
-                <option value="Mongolia">Mongolia</option>
-                <option value="Montenegro">Montenegro</option>
-                <option value="Morocco">Morocco</option>
-                <option value="Mozambique">Mozambique</option>
-                <option value="Myanmar">Myanmar</option>
-                <option value="Namibia">Namibia</option>
-                <option value="Nauru">Nauru</option>
-                <option value="Nepal">Nepal</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="New Zealand">New Zealand</option>
-                <option value="Nicaragua">Nicaragua</option>
-                <option value="Niger">Niger</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="North Macedonia">North Macedonia</option>
-                <option value="Norway">Norway</option>
-                <option value="Oman">Oman</option>
-                <option value="Pakistan">Pakistan</option>
-                <option value="Palau">Palau</option>
-                <option value="Panama">Panama</option>
-                <option value="Papua New Guinea">Papua New Guinea</option>
-                <option value="Paraguay">Paraguay</option>
-                <option value="Peru">Peru</option>
-                <option value="Philippines">Philippines</option>
-                <option value="Poland">Poland</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Qatar">Qatar</option>
-                <option value="Republic of Korea">Republic of Korea</option>
-                <option value="Republic of Moldova">Republic of Moldova</option>
-                <option value="Romania">Romania</option>
-                <option value="Russia">Russia</option>
-                <option value="Rwanda">Rwanda</option>
-                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                <option value="Saint Lucia">Saint Lucia</option>
-                <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
-                <option value="Samoa">Samoa</option>
-                <option value="San Marino">San Marino</option>
-                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Senegal">Senegal</option>
-                <option value="Serbia">Serbia</option>
-                <option value="Seychelles">Seychelles</option>
-                <option value="Sierra Leone">Sierra Leone</option>
-                <option value="Singapore">Singapore</option>
-                <option value="Slovakia">Slovakia</option>
-                <option value="Slovenia">Slovenia</option>
-                <option value="Solomon Islands">Solomon Islands</option>
-                <option value="Somalia">Somalia</option>
-                <option value="South Africa">South Africa</option>
-                <option value="South Sudan">South Sudan</option>
-                <option value="Spain">Spain</option>
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="Sudan">Sudan</option>
-                <option value="Suriname">Suriname</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-                <option value="Tajikistan">Tajikistan</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Timor-Leste">Timor-Leste</option>
-                <option value="Togo">Togo</option>
-                <option value="Tonga">Tonga</option>
-                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                <option value="Tunisia">Tunisia</option>
-                <option value="Türkiye">Türkiye</option>
-                <option value="Turkmenistan">Turkmenistan</option>
-                <option value="Tuvalu">Tuvalu</option>
-                <option value="Uganda">Uganda</option>
-                <option value="Ukraine">Ukraine</option>
-                <option value="United Arab Emirates">United Arab Emirates</option>
-                <option value="United Kingdom(UK)">United Kingdom(UK)</option>
-                <option value="United Republic of Tanzania">United Republic of Tanzania</option>
-                <option value="United States of America(USA)">United States of America(USA)</option>
-                <option value="Uruguay">Uruguay</option>
-                <option value="Uzbekistan">Uzbekistan</option>
-                <option value="Vanuatu">Vanuatu</option>
-                <option value="Venezuela">Venezuela</option>
-                <option value="Viet Nam">Viet Nam</option>
-                <option value="Yemen">Yemen</option>
-                <option value="Zambia">Zambia</option>
-                <option value="Zimbabwe">Zimbabwe</option>
-            </select>
-            </div>
 
             <div class="input-container">
-            <label class="form-label" for="citySelect" id="city2">City:</label>
-            <select id="citySelect2" name="citySelect" class="form-input">
-                <option value="">Select City</option>
-            </select>
-    
+                <label class="form-label" for="countrySelect">Country:</label>
+                <select id="countrySelect2" name="countrySelect" class="form-input" onchange="populateCities2()">
+                    <option value="">Select Country</option>
+                    <!-- Your JavaScript will populate the options dynamically -->
+                </select>
+            </div>
+            
+            <script>
+                // Array of countries
+                var countries = [
+                    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+                    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+                    "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+                    "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Côte D'Ivoire",
+                    "Croatia", "Cuba", "Cyprus", "Czechia", "Democratic People's Republic of Korea", "Democratic Republic of the Congo", "Denmark", "Djibouti",
+                    "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+                    "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea Bissau",
+                    "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan",
+                    "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Lao People’s Democratic Republic", "Latvia", "Lebanon", "Lesotho",
+                    "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands",
+                    "Mauritania", "Mauritius", "Mexico", "Micronesia", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
+                    "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama",
+                    "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of Korea", "Republic of Moldova", "Romania",
+                    "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+                    "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
+                    "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syrian Arab Republic", "Tajikistan", "Thailand", "Timor-Leste",
+                    "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Türkiye", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom(UK)",
+                    "United Republic of Tanzania", "United States of America(USA)", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Viet Nam", "Yemen", "Zambia", "Zimbabwe"
+                ];
+            
+                // Function to populate the select element with countries
+                function populateCountries() {
+                    var countrySelect = document.getElementById("countrySelect2");
+            
+                    // Clear previous options
+                    countrySelect.innerHTML = '<option value="">Select Country</option>';
+            
+                    // Add options for each country
+                    countries.forEach(function(country) {
+                        var option = document.createElement("option");
+                        option.text = country;
+                        option.value = country;
+                        countrySelect.add(option);
+                    });
+                }
+            
+                // Call the function to populate countries when the page loads
+                window.onload = function() {
+                    populateCountries();
+                };
+            
+                // Function to populate cities based on the selected country
+                function populateCities2() {
+                    // Your code to populate cities based on the selected country goes here
+                }
+            </script>
+            
+
+            <div class="input-container">
+                <label class="form-label" for="cityInput2">City:</label>
+                <input type="text" id="cityInput2" name="cityInput" class="form-input" placeholder="Enter City">
+            </div>
+
 
         <script>
             function populateCities2() {
@@ -689,14 +350,14 @@
     <script>
          document.getElementById('currentlyWorkHere').addEventListener('change', function() {
         var endWrapper = document.getElementById('endWrapper');
-    
+
 
         if (this.checked) {
             endWrapper.style.display = 'none';
-           
+
         } else {
             endWrapper.style.display = 'inline-block';
-        
+
         }
     });
 </script>
@@ -754,14 +415,14 @@
 <script>
          document.getElementById('currentlyStudyHere').addEventListener('change', function() {
         var endWrapper1 = document.getElementById('endWrapper1');
-    
+
 
         if (this.checked) {
             endWrapper1.style.display = 'none';
-           
+
         } else {
             endWrapper1.style.display = 'inline-block';
-        
+
         }
     });
 </script>
@@ -773,7 +434,7 @@
     <input type="text" id="skill1" name="skill1" class="form-input disp" style="width: 10%;"><br><br>
     </div>
     <button type="button" onclick="addSkill()" class="add-button">Add More</button><br><br>
-    
+
 
     <label class="form-label" for="areasOfExpertise">Areas of Expertise:</label>
     <select id="areasOfExpertise" name="areasOfExpertise" class="form-input"><br>
@@ -795,122 +456,40 @@
     </select>
 
     <label class="form-label" for="areasOfInterest">Areas of Interest (business):</label>
-    <select id="areasOfInterest" name="areasOfInterest" class="form-input"><br>
-        <option value="Marketing">Marketing</option>
-        <option value="Finance">Finance</option>
-        <option value="Sales">Sales</option>
-        <option value="Entrepreneurship">Entrepreneurship</option>
-        <option value="Strategy">Strategy</option>
-        <option value="Management">Management</option>
-        <option value="Leadership">Leadership</option>
-        <option value="Human Resources">Human Resources</option>
-        <option value="Supply Chain Management">Supply Chain Management</option>
-        <option value="Business Development">Business Development</option>
-        <option value="Project Management">Project Management</option>
-        <option value="Product Management">Product Management</option>
-        <option value="Market Research">Market Research</option>
-        <option value="International Business">International Business</option>
-        <option value="E-commerce">E-commerce</option>
-        <option value="Retail">Retail</option>
-        <option value="Hospitality">Hospitality</option>
-        <option value="Real Estate">Real Estate</option>
-        <option value="Consulting">Consulting</option>
-        <option value="Sustainability">Sustainability</option>
-        <option value="Innovation">Innovation</option>
-        <option value="Technology">Technology</option>
-        <option value="Data Analytics">Data Analytics</option>
-        <option value="Digital Marketing">Digital Marketing</option>
-        <option value="Social Media">Social Media</option>
-        <option value="Brand Management">Brand Management</option>
-        <option value="Public Relations">Public Relations</option>
-        <option value="Financial Planning">Financial Planning</option>
-        <option value="Investment Management">Investment Management</option>
-        <option value="Risk Management">Risk Management</option>
-        <option value="Accounting">Accounting</option>
-        <option value="Taxation">Taxation</option>
-        <option value="Auditing">Auditing</option>
-        <option value="Business Law">Business Law</option>
-        <option value="Intellectual Property">Intellectual Property</option>
-        <option value="Startups">Startups</option>
-        <option value="Small Business">Small Business</option>
-        <option value="Family Business">Family Business</option>
-        <option value="Corporate Finance">Corporate Finance</option>
-        <option value="Venture Capital">Venture Capital</option>
-        <option value="Private Equity">Private Equity</option>
-        <option value="Mergers and Acquisitions">Mergers and Acquisitions</option>
-        <option value="Financial Markets">Financial Markets</option>
-        <option value="Trading">Trading</option>
-        <option value="Investment Banking">Investment Banking</option>
-        <option value="Asset Management">Asset Management</option>
-        <option value="Real Estate Investment">Real Estate Investment</option>
-        <option value="Wealth Management">Wealth Management</option>
-        <option value="Insurance">Insurance</option>
-        <option value="Banking">Banking</option>
-        <option value="Microfinance">Microfinance</option>
-        <option value="Financial Inclusion">Financial Inclusion</option>
-        <option value="Retail Banking">Retail Banking</option>
-        <option value="Commercial Banking">Commercial Banking</option>
-        <option value="Investment Banking">Investment Banking</option>
-        <option value="Business Analysis">Business Analysis</option>
-        <option value="Data Science">Data Science</option>
-        <option value="Machine Learning">Machine Learning</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Blockchain">Blockchain</option>
-        <option value="Cryptocurrency">Cryptocurrency</option>
-        <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Cloud Computing">Cloud Computing</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Web Development">Web Development</option>
-        <option value="Agile Methodology">Agile Methodology</option>
-        <option value="Scrum">Scrum</option>
-        <option value="Customer Experience (CX)">Customer Experience (CX)</option>
-        <option value="Customer Success">Customer Success</option>
-        <option value="Customer Support">Customer Support</option>
-        <option value="Customer Analytics">Customer Analytics</option>
-        <option value="Customer Retention">Customer Retention</option>
-        <option value="Customer Loyalty">Customer Loyalty</option>
-        <option value="Customer Segmentation">Customer Segmentation</option>
-        <option value="Customer Lifetime Value (CLV)">Customer Lifetime Value (CLV)</option>
-        <option value="Business Intelligence">Business Intelligence</option>
-        <option value="Data Visualization">Data Visualization</option>
-        <option value="Data Warehousing">Data Warehousing</option>
-        <option value="Big Data">Big Data</option>
-        <option value="Predictive Analytics">Predictive Analytics</option>
-        <option value="Prescriptive Analytics">Prescriptive Analytics</option>
-        <option value="Supply Chain Optimization">Supply Chain Optimization</option>
-        <option value="Inventory Management">Inventory Management</option>
-        <option value="Logistics Management">Logistics Management</option>
-        <option value="Procurement">Procurement</option>
-        <option value="Demand Forecasting">Demand Forecasting</option>
-        <option value="Lean Manufacturing">Lean Manufacturing</option>
-        <option value="Six Sigma">Six Sigma</option>
-        <option value="Quality Management">Quality Management</option>
-        <option value="Continuous Improvement">Continuous Improvement</option>
-        <option value="Customer Relationship Management (CRM)">Customer Relationship Management (CRM)</option>
-        <option value="Customer Experience (CX)">Customer Experience (CX)</option>
-        <option value="Customer Success">Customer Success</option>
-        <option value="Customer Support">Customer Support</option>
-        <option value="Customer Analytics">Customer Analytics</option>
-        <option value="Customer Retention">Customer Retention</option>
-        <option value="Customer Loyalty">Customer Loyalty</option>
-        <option value="Customer Segmentation">Customer Segmentation</option>
-        <option value="Customer Lifetime Value (CLV)">Customer Lifetime Value (CLV)</option>
-        <option value="Business Intelligence">Business Intelligence</option>
-        <option value="Data Visualization">Data Visualization</option>
-        <option value="Data Warehousing">Data Warehousing</option>
-        <option value="Big Data">Big Data</option>
-        <option value="Predictive Analytics">Predictive Analytics</option>
-        <option value="Prescriptive Analytics">Prescriptive Analytics</option>
-        <option value="Supply Chain Optimization">Supply Chain Optimization</option>
-        <option value="Inventory Management">Inventory Management</option>
-        <option value="Logistics Management">Logistics Management</option>
-    </select><br>
-</section>
+<select id="areasOfInterest" name="areasOfInterest" class="form-input">
+    <option value="">Select Area of Interest</option>
+    <script>
+        var areasOfInterest = [
+            "Marketing", "Finance", "Sales", "Entrepreneurship", "Strategy", "Management", "Leadership",
+            "Human Resources", "Supply Chain Management", "Business Development", "Project Management",
+            "Product Management", "Market Research", "International Business", "E-commerce", "Retail",
+            "Hospitality", "Real Estate", "Consulting", "Sustainability", "Innovation", "Technology",
+            "Data Analytics", "Digital Marketing", "Social Media", "Brand Management", "Public Relations",
+            "Financial Planning", "Investment Management", "Risk Management", "Accounting", "Taxation",
+            "Auditing", "Business Law", "Intellectual Property", "Startups", "Small Business", "Family Business",
+            "Corporate Finance", "Venture Capital", "Private Equity", "Mergers and Acquisitions", "Financial Markets",
+            "Trading", "Investment Banking", "Asset Management", "Real Estate Investment", "Wealth Management",
+            "Insurance", "Banking", "Microfinance", "Financial Inclusion", "Retail Banking", "Commercial Banking",
+            "Investment Banking", "Business Analysis", "Data Science", "Machine Learning", "Artificial Intelligence",
+            "Blockchain", "Cryptocurrency", "Internet of Things (IoT)", "Cybersecurity", "Cloud Computing",
+            "Mobile Applications", "Web Development", "Agile Methodology", "Scrum", "Customer Experience (CX)",
+            "Customer Success", "Customer Support", "Customer Analytics", "Customer Retention", "Customer Loyalty",
+            "Customer Segmentation", "Customer Lifetime Value (CLV)", "Business Intelligence", "Data Visualization",
+            "Data Warehousing", "Big Data", "Predictive Analytics", "Prescriptive Analytics", "Supply Chain Optimization",
+            "Inventory Management", "Logistics Management", "Procurement", "Demand Forecasting", "Lean Manufacturing",
+            "Six Sigma", "Quality Management", "Continuous Improvement", "Customer Relationship Management (CRM)"
+        ];
+
+        for (var i = 0; i < areasOfInterest.length; i++) {
+            document.write('<option value="' + areasOfInterest[i] + '">' + areasOfInterest[i] + '</option>');
+        }
+    </script>
+</select><br>
+
 
 <footer>
-    <p class="btn-sm contact-section">Contact us: contact@example.com</p>
-    <a id="saving" href="#" class="btn btn-sm" onclick="addAll()">Save Profile</a>
+    <p class="btn-sm contact-section">Contact us: Investy@support.com</p>
+    <a id="saving" href="/" class="btn btn-sm" onclick="saveProfile()">Save Profile</a>
 </footer>
 
 <script>
@@ -936,38 +515,30 @@
         new Darkmode(options).showWidget();
     }
     var j = 0;
-   function addExperience() {
-        j++
-        const ins = {}
-        var company = document.getElementById("company").value;
-        var position = document.getElementById("position").value;
-        var positionDesc = document.getElementById("positionDescription").value;
-        var start = document.getElementById("start").value;
-        //const currentlyWorkHere = document.getElementById("currentlyWorkHere").value;
-        var currentlyWorkHere = document.getElementById("currentlyWorkHere").value;
-        let checkbox = document.getElementById("currentlyWorkHere");
-        checkbox.addEventListener( "change", () => {
-            if ( checkbox.checked ) {
-                document.getElementById('currentlyWorkHere').setAttribute('value','checked')
-                
-            } else {
-                document.getElementById('currentlyWorkHere').setAttribute('value','notchecked')
-            }
-        });
-        var end = document.getElementById("end").value;
-        var countselect = document.getElementById("countrySelect2").value;
-        var citselect = document.getElementById("citySelect2").value;
+    function addExperience() {
+    const experienceData = {
+        company: document.getElementById("company").value,
+        position: document.getElementById("position").value,
+        positionDesc: document.getElementById("positionDescription").value,
+        start: document.getElementById("start").value,
+        currentlyWorkHere: document.getElementById("currentlyWorkHere").checked,
+        end: document.getElementById("end").value,
+        country: document.getElementById("countrySelect2").value,
+        city: document.getElementById("citySelect2").value
+    };
 
-        ins.company = company;
-        ins.position = position;
-        ins.positionDesc = positionDesc;
-        ins.start = start;
-        ins.currentlyWorkHere = document.getElementById('currentlyWorkHere').value;
-        ins.end = end;
-        ins.countselect = countselect;
-        ins.citselect = citselect;
-        
-        expereinceInputs["input" + j] = ins;
+    fetch('/add-experience', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(experienceData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add experience data');
+        }
+        // Reset form fields or perform any other necessary actions
         document.getElementById("company").value = '';
         document.getElementById("position").value = '';
         document.getElementById("positionDescription").value = '';
@@ -975,120 +546,117 @@
         document.getElementById("end").value = '';
         document.getElementById("countrySelect2").value = '';
         document.getElementById("citySelect2").value = '';
-        document.getElementById('currentlyWorkHere').setAttribute('value','');
-    }
+        document.getElementById("currentlyWorkHere").checked = false;
+    })
+    .catch(error => {
+        console.error('Error adding experience data:', error);
+        // Handle error, show an alert, etc.
+        alert('Failed to add experience data');
+    });
+}
 
-        var i = 0;
-      function addEducation() {
-        i++
-            const input2 = {};
+function addEducation() {
+    const educationData = {
+        organization: document.getElementById("organization").value,
+        subject: document.getElementById("subject").value,
+        start: document.getElementById("eduStart").value,
+        currentlyStudyHere: document.getElementById("currentlyStudyHere").checked,
+        end: document.getElementById("eduEnd").value,
+        degree: document.getElementById("degree").value,
+        certification: document.getElementById("certification").value
+    };
 
-        var organization = document.getElementById("organization").value;
-        var subject = document.getElementById("subject").value;
-        var start = document.getElementById("eduStart").value;
-        var currentlyStudyHere = document.getElementById("currentlyStudyHere").value;
-        let checkbox = document.getElementById("currentlyStudyHere");
-        checkbox.addEventListener( "change", () => {
-            if ( checkbox.checked ) {
-                document.getElementById('currentlyStudyHere').setAttribute('value','checked')
-                
-            } else {
-                document.getElementById('currentlyStudyHere').setAttribute('value','notchecked')
-            }
-        });
-        var end = document.getElementById("eduEnd").value;      
-        var degree = document.getElementById("degree").value;
-        var certification = document.getElementById("certification").value;
-
-        input2.organization = organization;
-        input2.subject = subject;
-        input2.start = start;
-        input2.currentlyStudyHere = document.getElementById("currentlyStudyHere").value;
-        input2.end = end;
-        input2.degree = degree;
-        input2.certification = certification;
-        
-        inputs["input" + i] = input2;
-
+    fetch('/add-education', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(educationData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add education data');
+        }
+        // Reset form fields or perform any other necessary actions
         document.getElementById("organization").value = '';
         document.getElementById("subject").value = '';
         document.getElementById("eduStart").value = '';
         document.getElementById("eduEnd").value = '';
-        document.getElementById("currentlyStudyHere").value = '';
         document.getElementById("degree").value = '';
         document.getElementById("certification").value = '';
-    }
-
-  var skillCount = 1;
-
-function addSkill() {
-    skillCount++;
-    
-    
-    var skillContainer = document.getElementById('Skill-container');
-    var newInput = document.createElement('input');
-    newInput.classList.add("disp");
-    newInput.classList.add("form-input");
-    newInput.style.width = "10%";
-    newInput.type = 'text';
-    newInput.id = 'skill' + skillCount;
-    newInput.name = 'skill' + skillCount;
-    newInput.placeholder = 'Skill ' + skillCount; 
-    newInput.style.marginRight = '5px';
-    //newInput.style.marginTop = '5px';
-    //newInput.style.marginBottom = '20px';
-    skillContainer.appendChild(newInput);
+        document.getElementById("currentlyStudyHere").checked = false;
+    })
+    .catch(error => {
+        console.error('Error adding education data:', error);
+        // Handle error, show an alert, etc.
+        alert('Failed to add education data');
+    });
 }
 
- function addAll(){
-    const fulldata = {}
-    const firstInfo = {}
-    const expertise = {}
-    const skills = [];
-    firstInfo.firstName = document.getElementById("firstName").value;
-    firstInfo.lastName = document.getElementById("lastName").value;
-    firstInfo.about = document.getElementById("aboutlabel").value;
-    firstInfo.birthday = document.getElementById("birthday").value;
-    firstInfo.gender = document.getElementById("gender").value;
-    firstInfo.country = document.getElementById("countrySelect").value;
-    firstInfo.city = document.getElementById("citySelect1").value;
-    firstInfo.LinkedIn = document.getElementById("linkedin").value;
-    firstInfo.email = document.getElementById("email").value;
-    addEducation()
-    addExperience()
+function addSkill() {
+    const skillData = {
+        // You may need to adjust this depending on how you want to handle skills
+        skills: document.getElementById("skill").value,
+    };
 
+    fetch('/add-skill', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(skillData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add skill data');
+        }
+        // Reset form fields or perform any other necessary actions
+        document.getElementById("skill").value = '';
+    })
+    .catch(error => {
+        console.error('Error adding skill data:', error);
+        // Handle error, show an alert, etc.
+        alert('Failed to add skill data');
+    });
+}
 
-    var ski = document.getElementById('expertise')
-                     .getElementsByTagName('input');
+function saveProfile() {
+    console.log('saveProfile function called');
+    const profileData = {
+        // Populate with the user's profile data
+        first_name: document.getElementById("firstName").value,
+        last_name: document.getElementById("lastName").value,
+        about: document.getElementById("aboutlabel").value,
+        birthday: document.getElementById("birthday").value,
+        gender: document.getElementById("gender").value,
+        country: document.getElementById("countrySelect").value,
+        city: document.getElementById("citySelect1").value,
+        linkedin: document.getElementById("linkedin").value,
+        // Add other fields as needed
+    };
 
-
-
-    for (var i = 0; i < ski.length; i++) {
-        
-        skills[i] = ski[i].value;
-    }
-    data.expereinceInputs = expereinceInputs;
-    data2.inputs = inputs;
-    expertise.skills = skills;
-    expertise.areaExpertise = document.getElementById("areasOfExpertise").value;
-    expertise.areaInterest = document.getElementById("areasOfInterest").value;
-
-    fulldata.About = firstInfo;
-    fulldata.Experience = data;
-    fulldata.Education = data2;
-    fulldata.Expertise = expertise;
-
-    console.log(fulldata);
-    document.getElementById('about').style.display = 'none';
-    document.getElementById('experience').style.display = 'none';
-    document.getElementById('education').style.display = 'none';
-    document.getElementById('expertise').style.display = 'none';
-    document.getElementById('saving').style.display = 'none';
-    setTimeout(function() { 
-      alert('Your data has been successfully added'); 
-}, 500);
-
- }
+    // Send a POST request to the server to save the profile data
+    fetch('/save-profile', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(profileData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to save profile data');
+        }
+        console.log('Profile data saved successfully');
+        enableProfileButtons();
+        // Redirect to the home page after successful save
+        window.location.href = '/';
+    })
+    .catch(error => {
+        console.error('Error saving profile data:', error);
+        // Handle error, show an alert, etc.
+    });
+}
 </script>
 
 </body>
