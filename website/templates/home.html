@@ -1,21 +1,67 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-    %}
-    <h1 align="center">Notes</h1>
-    <ul class="list-group list-group-flush" id="notes">
-      {% for note in user.notes %}
-      <li class="list-group-item">
-        {{ note.data }}
-        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </li>
-      {% endfor %}
-    </ul>
-    <form method="POST">
-      <textarea name="note" id="note" class="form-control"></textarea>
-      <br />
-      <div align="center">
-        <button type="submit" class="btn btn-primary">Add Note</button>
-      </div>
-    </form>
-    {% endblock %}
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %} 
+{% block content %}
+<style>
+  body {
+    background-image: url("static/backround/WhatsApp Image 2024-04-15 at 13.11.27_a2939bed.jpg");
+    background-size: cover;
+  }
+
+  /* Custom styles for buttons */
+  .btn-add-note {
+    background-color: grey; /* Change background color to grey */
+    color: white; /* Change text color to white */
+  }
+
+  .btn-user-profile {
+    background-color: blue; /* Change background color to blue */
+    color: white; /* Change text color to white */
+  }
+</style>
+
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary btn-add-note">Add Note</button> <!-- Apply custom styles -->
+    <a href="user-profile" class="btn btn-secondary btn-user-profile">User Profile</a> <!-- Apply custom styles -->
+    <!-- Investor Profile Button (initially disabled) -->
+    <button id="investorProfileButton" class="btn btn-secondary" disabled>Investor Profile</button>
+    <!-- Startup Profile Button (initially disabled) -->
+    <button id="startupProfileButton" class="btn btn-secondary" disabled>Startup Profile</button>
+  </div>
+</form>
+
+{% block javascript %}
+<script type="text/javascript">
+  function deleteNote(noteId) {
+      fetch("/delete-note", {
+          method: "POST",
+          body: JSON.stringify({ noteId: noteId }),
+      }).then((_res) => {
+          window.location.href = "/";
+      });
+  }
+
+  // Function to enable investor and startup profile buttons when profile is saved
+  function enableProfileButtons() {
+    var investorProfileButton = document.getElementById("investorProfileButton");
+    var startupProfileButton = document.getElementById("startupProfileButton");
+
+    investorProfileButton.disabled = false;
+    startupProfileButton.disabled = false;
+  }
+</script>
+{% endblock %}
+{% endblock %}
