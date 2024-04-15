@@ -1,0 +1,231 @@
+<html>
+<head>
+<title>profile.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #d5b778;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+.s4 { color: #56a8f5;}
+.s5 { color: #2aacb8;}
+.s6 { color: #7a7e85;}
+.s7 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+profile.html</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s1">&gt;</span>
+<span class="s1">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s1">&gt;</span>
+<span class="s1">&lt;head&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1.0&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;title&gt;</span><span class="s0">Startup Form</span><span class="s1">&lt;/title&gt;</span>
+    <span class="s1">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;https://cdn.jsdelivr.net/npm/darkmode-js/css/darkmode.min.css&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;https://cdn.jsdelivr.net/npm/darkmode-js&quot;</span><span class="s1">&gt;&lt;/script&gt;</span>
+    <span class="s1">&lt;style&gt;</span>
+        <span class="s1">body </span><span class="s0">{</span>
+            <span class="s2">font-family</span><span class="s0">: </span><span class="s1">Arial</span><span class="s0">, </span><span class="s3">sans-serif</span><span class="s0">;</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#f2f2f2</span><span class="s0">;</span>
+            <span class="s2">margin</span><span class="s0">: </span><span class="s5">0</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">0</span><span class="s0">;</span>
+            <span class="s2">color</span><span class="s0">: </span><span class="s4">#000</span><span class="s0">; </span><span class="s6">/* Black mode for text */</span>
+        <span class="s0">}</span>
+        <span class="s1">header </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#6a5acd</span><span class="s0">; </span><span class="s6">/* Light purple */</span>
+            <span class="s2">color</span><span class="s0">: </span><span class="s3">white</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">text-align</span><span class="s0">: </span><span class="s3">center</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s1">nav </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#483d8b</span><span class="s0">; </span><span class="s6">/* Dark blue */</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">10</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">text-align</span><span class="s0">: </span><span class="s3">center</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s1">section </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#fff</span><span class="s0">; </span><span class="s6">/* White */</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">margin</span><span class="s0">: </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">10</span><span class="s3">px</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s1">footer </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#191970</span><span class="s0">; </span><span class="s6">/* Midnight blue */</span>
+            <span class="s2">color</span><span class="s0">: </span><span class="s3">white</span><span class="s0">;</span>
+            <span class="s2">text-align</span><span class="s0">: </span><span class="s3">center</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">10</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">position</span><span class="s0">: </span><span class="s3">fixed</span><span class="s0">;</span>
+            <span class="s2">bottom</span><span class="s0">: </span><span class="s5">0</span><span class="s0">;</span>
+            <span class="s2">width</span><span class="s0">: </span><span class="s5">100</span><span class="s0">%;</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">btn </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#00008b</span><span class="s0">; </span><span class="s6">/* Dark blue */</span>
+            <span class="s2">color</span><span class="s0">: </span><span class="s3">white</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">10</span><span class="s3">px </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">border</span><span class="s0">: </span><span class="s3">none</span><span class="s0">;</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">cursor</span><span class="s0">: </span><span class="s3">pointer</span><span class="s0">;</span>
+            <span class="s2">text-decoration</span><span class="s0">: </span><span class="s3">none</span><span class="s0">;</span>
+            <span class="s2">display</span><span class="s0">: </span><span class="s3">inline-block</span><span class="s0">;</span>
+            <span class="s2">margin</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">btn-sm </span><span class="s0">{</span>
+            <span class="s2">font-size</span><span class="s0">: </span><span class="s5">14</span><span class="s3">px</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">btn</span><span class="s0">:</span><span class="s1">hover </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#0000cd</span><span class="s0">; </span><span class="s6">/* Blue */</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">contact-section </span><span class="s0">{</span>
+            <span class="s2">border</span><span class="s0">: </span><span class="s5">2</span><span class="s3">px solid </span><span class="s4">#6a5acd</span><span class="s0">; </span><span class="s6">/* Light purple */</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">display</span><span class="s0">: </span><span class="s3">inline-block</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s6">/* Style for &quot;Add More&quot; buttons */</span>
+        <span class="s0">.</span><span class="s1">add-button </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#6a5acd</span><span class="s0">; </span><span class="s6">/* Light purple */</span>
+            <span class="s2">color</span><span class="s0">: </span><span class="s3">white</span><span class="s0">;</span>
+            <span class="s2">border</span><span class="s0">: </span><span class="s3">none</span><span class="s0">;</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">8</span><span class="s3">px </span><span class="s5">16</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">cursor</span><span class="s0">: </span><span class="s3">pointer</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">add-button</span><span class="s0">:</span><span class="s1">hover </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#483d8b</span><span class="s0">; </span><span class="s6">/* Dark blue */</span>
+            <span class="s6">/* Style for &quot;Toggle Mode&quot; button */</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">toggle-switch </span><span class="s0">{</span>
+            <span class="s2">position</span><span class="s0">: </span><span class="s3">relative</span><span class="s0">;</span>
+            <span class="s2">display</span><span class="s0">: </span><span class="s3">inline-block</span><span class="s0">;</span>
+            <span class="s2">width</span><span class="s0">: </span><span class="s5">40</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">height</span><span class="s0">: </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#ccc</span><span class="s0">;</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">margin</span><span class="s0">: </span><span class="s5">0 10</span><span class="s3">px</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">toggle-switch</span><span class="s0">::</span><span class="s1">after </span><span class="s0">{</span>
+            <span class="s2">content</span><span class="s0">: </span><span class="s3">''</span><span class="s0">;</span>
+            <span class="s2">position</span><span class="s0">: </span><span class="s3">absolute</span><span class="s0">;</span>
+            <span class="s2">width</span><span class="s0">: </span><span class="s5">18</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">height</span><span class="s0">: </span><span class="s5">18</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">50</span><span class="s0">%;</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s3">white</span><span class="s0">;</span>
+            <span class="s2">top</span><span class="s0">: </span><span class="s5">1</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">left</span><span class="s0">: </span><span class="s5">1</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">transition</span><span class="s0">: </span><span class="s5">0.2</span><span class="s3">s</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s6">/* Styling for dark mode */</span>
+        <span class="s1">body</span><span class="s0">.</span><span class="s1">dark-mode </span><span class="s0">.</span><span class="s1">toggle-switch </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#333</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s1">body</span><span class="s0">.</span><span class="s1">dark-mode </span><span class="s0">.</span><span class="s1">toggle-switch</span><span class="s0">::</span><span class="s1">after </span><span class="s0">{</span>
+            <span class="s2">left</span><span class="s0">: </span><span class="s5">21</span><span class="s3">px</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s6">/* Style for &quot;Submit&quot; button */</span>
+        <span class="s0">.</span><span class="s1">submit-btn </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#191970</span><span class="s0">; </span><span class="s6">/* Midnight blue */</span>
+            <span class="s2">color</span><span class="s0">: </span><span class="s3">white</span><span class="s0">;</span>
+            <span class="s2">padding</span><span class="s0">: </span><span class="s5">10</span><span class="s3">px </span><span class="s5">20</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">border</span><span class="s0">: </span><span class="s3">none</span><span class="s0">;</span>
+            <span class="s2">border-radius</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+            <span class="s2">cursor</span><span class="s0">: </span><span class="s3">pointer</span><span class="s0">;</span>
+            <span class="s2">text-decoration</span><span class="s0">: </span><span class="s3">none</span><span class="s0">;</span>
+            <span class="s2">display</span><span class="s0">: </span><span class="s3">inline-block</span><span class="s0">;</span>
+            <span class="s2">margin</span><span class="s0">: </span><span class="s5">5</span><span class="s3">px</span><span class="s0">;</span>
+        <span class="s0">}</span>
+        <span class="s0">.</span><span class="s1">submit-btn</span><span class="s0">:</span><span class="s1">hover </span><span class="s0">{</span>
+            <span class="s2">background-color</span><span class="s0">: </span><span class="s4">#001ca6</span><span class="s0">; </span><span class="s6">/* Darker midnight blue on hover */</span>
+        <span class="s0">}</span>
+    <span class="s1">&lt;/style&gt;</span>
+<span class="s1">&lt;/head&gt;</span>
+<span class="s1">&lt;body&gt;</span>
+<span class="s1">&lt;header&gt;</span>
+    <span class="s1">&lt;h1&gt;</span><span class="s0">User Profile</span><span class="s1">&lt;/h1&gt;</span>
+<span class="s1">&lt;/header&gt;</span>
+
+<span class="s1">&lt;nav&gt;</span>
+    <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#about&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn&quot;</span><span class="s1">&gt;</span><span class="s0">About</span><span class="s1">&lt;/a&gt;</span>
+    <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#business&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn&quot;</span><span class="s1">&gt;</span><span class="s0">Business</span><span class="s1">&lt;/a&gt;</span>
+    <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#team&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn&quot;</span><span class="s1">&gt;</span><span class="s0">Team</span><span class="s1">&lt;/a&gt;</span>
+    <span class="s1">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#ForStartups&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn&quot;</span><span class="s1">&gt;</span><span class="s0">For Startup</span><span class="s1">&lt;/a&gt;</span>
+<span class="s1">&lt;/nav&gt;</span>
+
+<span class="s1">&lt;section </span><span class="s2">id</span><span class="s3">=&quot;about&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;h2&gt;</span><span class="s0">About</span><span class="s1">&lt;/h2&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Name: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;startupName&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Description: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;description&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Country: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;country&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Logo: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;logo&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+<span class="s1">&lt;/section&gt;</span>
+
+<span class="s1">&lt;section </span><span class="s2">id</span><span class="s3">=&quot;business&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;h2&gt;</span><span class="s0">Business</span><span class="s1">&lt;/h2&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Total Budget: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;total_fund&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Average heck: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;average_check&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Maximal Check: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;max_check&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+<span class="s1">&lt;/section&gt;</span>
+
+<span class="s1">&lt;section </span><span class="s2">id</span><span class="s3">=&quot;team&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;h2&gt;</span><span class="s0">Team</span><span class="s1">&lt;/h2&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Fund Manager: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;fund_manager&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Limited Partner: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;name&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Employees: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;e_name&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+<span class="s1">&lt;/section&gt;</span>
+
+<span class="s1">&lt;section </span><span class="s2">id</span><span class="s3">=&quot;ForStartups&quot;</span><span class="s1">&gt;</span>
+    <span class="s1">&lt;h2&gt;</span><span class="s0">For Startups</span><span class="s1">&lt;/h2&gt;</span>
+    <span class="s1">&lt;p&gt;</span><span class="s0">Description: </span><span class="s1">&lt;span </span><span class="s2">id</span><span class="s3">=&quot;application_description&quot;</span><span class="s1">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+
+<span class="s1">&lt;/section&gt;</span>
+
+<span class="s1">&lt;footer&gt;</span>
+    <span class="s6">&lt;!-- Footer content --&gt;</span>
+<span class="s1">&lt;/footer&gt;</span>
+
+<span class="s1">&lt;script&gt;</span>
+    <span class="s0">document.addEventListener(</span><span class="s3">'DOMContentLoaded'</span><span class="s0">, </span><span class="s7">function</span><span class="s0">() {</span>
+        <span class="s6">// Retrieve data from local storage</span>
+        <span class="s7">var </span><span class="s0">about = JSON.parse(localStorage.getItem(</span><span class="s3">'about'</span><span class="s0">));</span>
+        <span class="s7">var </span><span class="s0">business = JSON.parse(localStorage.getItem(</span><span class="s3">'business'</span><span class="s0">));</span>
+        <span class="s7">var </span><span class="s0">team = JSON.parse(localStorage.getItem(</span><span class="s3">'team'</span><span class="s0">));</span>
+        <span class="s7">var </span><span class="s0">forstartups = JSON.parse(localStorage.getItem(</span><span class="s3">'ForStartups'</span><span class="s0">));</span>
+
+        <span class="s6">// Display data on the profile page</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'startupName'</span><span class="s0">).textContent = about.name;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'description'</span><span class="s0">).textContent = about.description;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'country'</span><span class="s0">).textContent = about.country;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'logo'</span><span class="s0">).textContent = about.logo;</span>
+
+        <span class="s0">document.getElementById(</span><span class="s3">'total_fund'</span><span class="s0">).textContent = business.total_fund;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'average_check'</span><span class="s0">).textContent = business.average_check;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'max_check'</span><span class="s0">).textContent = business.max_check;</span>
+
+        <span class="s0">document.getElementById(</span><span class="s3">'fund_manager'</span><span class="s0">).textContent = team.fund_manager;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'name'</span><span class="s0">).textContent = team.name;</span>
+        <span class="s0">document.getElementById(</span><span class="s3">'e_name'</span><span class="s0">).textContent = team.e_name;</span>
+
+        <span class="s0">document.getElementById(</span><span class="s3">'application_description'</span><span class="s0">).textContent = forStartups.application_description;</span>
+<span class="s1">&lt;/script&gt;</span>
+
+<span class="s1">&lt;/body&gt;</span>
+<span class="s1">&lt;/html&gt;</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>
