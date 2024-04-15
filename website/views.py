@@ -35,3 +35,8 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/user-profile')
+@login_required
+def user_profile():
+    return render_template("user/yanifinal.html", user=current_user)
