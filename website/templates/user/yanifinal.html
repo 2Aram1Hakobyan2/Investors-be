@@ -431,7 +431,7 @@
     <h2>Expertise</h2>
     <label class="form-label" for="skills">Skills:</label>
     <div id="Skill-container">
-    <input type="text" id="skill1" name="skill1" class="form-input disp" style="width: 10%;"><br><br>
+    <input type="text" id="skill" name="skill" class="form-input disp" style="width: 10%;"><br><br>
     </div>
     <button type="button" onclick="addSkill()" class="add-button">Add More</button><br><br>
 
@@ -489,7 +489,7 @@
 
 <footer>
     <p class="btn-sm contact-section">Contact us: Investy@support.com</p>
-    <a id="saving" href="/" class="btn btn-sm" onclick="saveProfile()">Save Profile</a>
+    <a id="saving" class="btn btn-sm" onclick="saveProfile()">Save Profile</a>
 </footer>
 
 <script>
@@ -524,7 +524,7 @@
         currentlyWorkHere: document.getElementById("currentlyWorkHere").checked,
         end: document.getElementById("end").value,
         country: document.getElementById("countrySelect2").value,
-        city: document.getElementById("citySelect2").value
+        city: document.getElementById("cityInput2").value
     };
 
     fetch('/add-experience', {
@@ -551,7 +551,6 @@
     .catch(error => {
         console.error('Error adding experience data:', error);
         // Handle error, show an alert, etc.
-        alert('Failed to add experience data');
     });
 }
 
@@ -626,11 +625,11 @@ function saveProfile() {
         // Populate with the user's profile data
         first_name: document.getElementById("firstName").value,
         last_name: document.getElementById("lastName").value,
-        about: document.getElementById("aboutlabel").value,
+        about: document.getElementById("about").value,
         birthday: document.getElementById("birthday").value,
         gender: document.getElementById("gender").value,
-        country: document.getElementById("countrySelect").value,
-        city: document.getElementById("citySelect1").value,
+        country: document.getElementById("country").value,
+        city: document.getElementById("city").value,
         linkedin: document.getElementById("linkedin").value,
         // Add other fields as needed
     };
@@ -648,7 +647,6 @@ function saveProfile() {
             throw new Error('Failed to save profile data');
         }
         console.log('Profile data saved successfully');
-        enableProfileButtons();
         // Redirect to the home page after successful save
         window.location.href = '/';
     })
