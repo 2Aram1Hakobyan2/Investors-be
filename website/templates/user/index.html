@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <a href="/" class="home-button">Home</a>
+    <a href="/user-profile-edit" class="user-profile-back">Back</a>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/darkmode-js/css/darkmode.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js"></script>
+    <script src="mysrc.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            height: 2100px;
+        }
+
+        header {
+            background-color: #6a5acd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #191970;
+            color: white;
+            text-align: center;
+            padding: -5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        nav {
+            background-color: #483d8b; /* Dark blue */
+            padding: 10px;
+            text-align: center;
+        }
+        .input-container {
+            display: inline-block; /* Display containers inline */
+            margin-right: -505px;
+            margin-left: 0px;
+            margin-bottom: 5px; /* Adjust margin */
+            box-sizing: border-box; /* Include padding and border in the width */
+            padding: 3px;
+            width: 50%; /* Ensure the container spans the entire width */
+            text-align: left;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #00008b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline;
+            margin: 5px;
+        }
+        .btn-sm {
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #0000cd;
+        }
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 20%;
+            padding: 10px;
+            margin-bottom: -10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .add-button {
+            background-color: #6a5acd; /* Light purple */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            background-color: #483d8b; /* Dark blue */
+        }
+        .contact-section {
+            border: 2px solid #6a5acd; /* Light purple */
+            border-radius: 5px;
+            padding: 5px;
+            display: inline;
+        }
+        .submit-btn {
+            background-color: #191970; /* Midnight blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #001ca6;
+        }
+        #city1{
+            text-align: left;
+            margin-left: -40px;
+        }
+        #citySelect1{
+            margin-left: -40px;
+        }
+        #investors-container input[type="text"] {
+            width: 10%;
+            margin-right: 5px;
+            margin-top: 10px;
+        }
+        .add-button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Investor Form</h1>
+    <button class="btn btn-sm" onclick="toggleMode()">Toggle Mode</button>
+</header>
+
+<nav>
+    <a href="#about" class="btn">About</a>
+    <a href="#business" class="btn">Business</a>
+    <a href="#team" class="btn">Team</a>
+    <a href="#investors" class="btn">Investors</a>
+</nav>
+
+<section id="about">
+    <h2>About</h2>
+    <form>
+        <div class="input-container">
+            <label class="form-label" for="Name">Name:</label>
+            <input type="text" id="startuptName" name="startupName" class="form-input" style.margin-buttom= "5px"><br><br>
+
+        <label class="form-label" for="logo">Logo:</label>
+        <input type="file" id="logo" name="logo"><br><br>
+
+        <label class="form-label" for="description">Description:</label>
+        <textarea id="description" name="description" rows="4" cols="50" class="form-input"></textarea><br><br>
+
+
+        <form>
+            <label class="form-label form-label-top form-label-auto" for="country_selection" id="country_selection_label">Country:</label>
+            <input type="text" id="country_selection" name="country_selection" placeholder="Enter country" class="form-input"  style.margin-buttom= "5px" />
+        
+            <label class="form-label form-label-top form-label-auto" for="city_selection" id="city_selection_label">City:</label>
+            <input type="text" id="city_selection" name="city_selection" placeholder="Enter city" class="form-input"  style.margin-buttom= "5px"/>
+        </form>
+        
+</body>
+</div>
+</section>
+
+<div class="divider" data-component="divider"
+     style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:0px;margin-bottom:5px">
+</div>
+
+
+<section>
+    <h2>Business</h2>
+
+    <div style="display: flex; align-items: flex-start;">
+        <div style="margin-right: 20px;">
+            <form>
+                <label class="form-label" for="total_fund">Total Fund (USD):</label>
+                <input aria-labelledby="total_fund sublabel_total_fund" class="form-number-input form-textbox" data-component="number" data-defaultvalue=""
+                       data-type="input-number" id="total_fund" name="total_fund" placeholder="$230000"
+                       size="310" step="any" style="width:150px" type="number"
+                       value=""/>
+            </form>
+            <form>
+                <label class="form-label" for="average_check">Average Check (USD):</label>
+                <input aria-labelledby="average_check" class="form-number-input form-textbox" data-component="number" data-defaultvalue=""
+                       data-type="input-number" id="average_check" name="average_check" placeholder="$230000"
+                       size="310" step="any" style="width:150px" type="number"
+                       value=""/>
+            </form>
+            <form>
+                <label class="form-label" for="max_check">Max Check (USD):</label>
+                <input aria-labelledby="label_69 sublabel_input_69" class="form-number-input form-textbox" data-component="number" data-defaultvalue=""
+                       data-type="input-number" id="max_check" name="max_check" placeholder="$230000"
+                       size="310" step="any" style="width:150px" type="number"
+                       value=""/>
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- areas of interest here -->
+    <label class="form-label" style="font-size: 17px; font-weight: bold;">Areas of Interest:</label>
+    <div class="checkbox-wrapper" id="areasOfInterest">
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Financial Technology" type="checkbox" value="Financial Technology"/>
+            Financial Technology
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Education Technology (EdTech)" type="checkbox" value="Education Technology (EdTech)"/>
+            Education Technology (EdTech)
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Internet of Things (IoT)" type="checkbox" value="Internet of Things (IoT)"/>
+            Internet of Things (IoT)
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Cloud Computing" type="checkbox" value="Cloud Computing"/>
+            Cloud Computing
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Cybersecurity" type="checkbox" value="Cybersecurity"/>
+            Cybersecurity
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Telemedicine" type="checkbox" value="Telemedicine"/>
+            Telemedicine
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Healthcare and Pharmaceuticals" type="checkbox" value="Healthcare and Pharmaceuticals"/>
+            Healthcare and Pharmaceuticals
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Biotechnology" type="checkbox" value="Biotechnology"/>
+            Biotechnology
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Environmental, Social and Governance (ESG)" type="checkbox" value="Environmental, Social and Governance (ESG)"/>
+            Environmental, Social and Governance (ESG)
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Green Energy" type="checkbox" value="Green Energy"/>
+            Green Energy
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="On-Demand Services" type="checkbox" value="On-Demand Services"/>
+            On-Demand Services
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Home Technology" type="checkbox" value="Home Technology"/>
+            Home Technology
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="Artificial Intelligence" type="checkbox" value="Artificial Intelligence"/>
+            Artificial Intelligence
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <label class="checkbox-label">
+            <input class="checkbox-input" name="other" type="checkbox" value="other"/>
+            Other
+            <span class="checkbox-custom"></span>
+        </label><br>
+        <div id="otherAnswer" style="display: none;">
+            <input id="otherText" name="otherText" placeholder="Enter your answer" type="text"/>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var otherCheckbox = document.querySelector('input[name="other"]');
+            var otherAnswer = document.getElementById('otherAnswer');
+
+            otherCheckbox.addEventListener('change', function () {
+                if (this.checked) {
+                    otherAnswer.style.display = 'block';
+                } else {
+                    otherAnswer.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+
+
+    <div class="divider" data-component="divider"
+         style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:0.5cm;margin-bottom:5px">
+    </div>
+
+    <!-- Team/Partner-->
+    <span>
+    <h2>Team</h2>
+
+        <!-- Fund Manager Section -->
+    <label aria-hidden="false" class="form-label form-label-top form-label-auto" id="fund_manager"
+           style="font-size: 17px;">
+      <b>Fund Manager</b><span>
+    </label>
+
+        <!-- invitation -->
+
+  <input id="email" name="email" placeholder="Email" type="email">
+  <button type="button" onclick="sendInvitation()" class="add-button">Send Invitation</button><br><br>
+
+
+
+    <script>
+      document.getElementById('send_invite_button').addEventListener('click', function () {
+          const emailInput = document.getElementById('email').value;
+          const accName = document.getElementById('name').textContent;
+
+          const invitationMessage = `Hello, You are invited to the platform by ${name}  as a Fund Manager.Click here to approve it. If this email is sent by mistake, please ignore it.`;
+
+      });
+    </script>
+
+
+
+    <div class="divider" data-component="divider"
+         style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:1000px;margin-top:0.5cm;margin-bottom:5px">
+    </div>
+
+
+        <!-- Limited Partners Section -->
+    <h2>Limited Partners</h2>
+    <div>
+ <label aria-hidden="false" class="form-label form-label-top form-label-auto"
+        for="limited_partner" id="limited_partner_label">Name:</label>
+      <input id="limited_partner" name="limited_partner">
+</div>
+
+
+        <!-- Investment Amount Section -->
+    <div style="margin-top: 10px;">
+      <div>
+        <label aria-hidden="false" class="form-label form-label-top form-label-auto"
+               for="investment_amount" id="investment_amount_label">Investment Amount:</label>
+        <input id="investment_amount" name="investment_amount" placeholder="$230000" type="number"/>
+      </div>
+    </div>
+        </div>
+        </div>
+
+
+
+
+        <!-- Add button for limited partners -->
+
+  <button id="add_partners_button" class="btn add-button">Add Partners</button>
+
+<script>
+  document.getElementById('add_partners_button').addEventListener('click', function () {
+      const limitedPartnersSection = document.getElementById('limited_partners').cloneNode(true);
+
+      const clonedNameInput = limitedPartnersSection.querySelector('input[type="text"]');
+      const clonedInvestmentInput = limitedPartnersSection.querySelector('input[type="number"]');
+      clonedNameInput.value = '';
+      clonedInvestmentInput.value = '';
+
+      // Create a delete button
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('btn', 'add-button');
+      deleteButton.addEventListener('click', function () {
+          const addedSectionsContainer = document.getElementById('added_sections_container');
+          addedSectionsContainer.removeChild(addedSectionsContainer.lastChild);
+      });
+
+      // Append the delete button to the cloned section
+      limitedPartnersSection.appendChild(deleteButton);
+      const addedSectionsContainer = document.getElementById('added_sections_container');
+      addedSectionsContainer.appendChild(limitedPartnersSection);
+  });
+</script>
+
+
+
+<div class="divider" data-component="divider"
+     style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
+</div>
+
+        <!-- Employee Section -->
+
+<span>
+    <h2>Employee</h2>
+    <div id="employeeFormSection"></div>
+
+   <div style="display: flex; flex-direction: row;">
+     <div class="form-input-wide" data-layout="full" id="employee_container">
+       <div class="extended" data-wrapper-react="true">
+         <div style="display: flex;">
+
+           <div class="form-sub-label-container" style="vertical-align:top; flex: 1;">
+             <label class="form-label form-label-top form-label-auto" for="first_employee" id="sublabel_employee_first"
+                    style="min-height:13px"><b>First Name</b></label>
+
+             <input aria-labelledby="employee_label sublabel_employee_first" autoComplete="section-employee given-name" class="form-textbox" data-component="first"
+                    data-defaultvalue="" id="first_employee" name="employee[first_name]"
+                    size="10"
+                    type="text"/>
+           </div>
+           <div>
+             <label class="form-label form-label-top form-label-auto" for="last_employee" id="sublabel_employee_last"
+             ><b>Last Name</b></label>
+             <input id="last_employee" name="employee[last_name]">
+           </div>
+
+           <div>
+             <label class="form-label form-label-top form-label-auto" for="position_employee" id="sublabel_employee_position"
+             ><b>Position</b></label>
+             <input id="position_employee" name="employee[position]">
+           </div>
+
+
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+    <!-- URL -->
+<div style="display: flex; flex-direction: column;">
+  <label class="form-label form-label-top form-label-auto" for="profile_url_employee" id="employee_profile_url">
+    <b>URL to LinkedIn Profile
+  </label>
+  <input aria-labelledby="employee_label sublabel_employee_profile_url" class="form-url validate[Url]" data-component="url" data-defaultvalue=""
+         data-type="input-url" id="profile_url_employee" name="employee[profile_url]" size="310" style="width:310px"
+         type="url"/>
+</div>
+
+
+
+    </div>
+    </div>
+
+    <!-- Button to add employee -->
+    <button id="add_employee_button" class="btn add-button">Add Employee</button>
+
+
+<script>
+  document.getElementById('add_employee_button').addEventListener('click', function () {
+      const employeeFormSection = document.querySelector('.form-section').cloneNode(true);
+
+      // Create a delete button
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('btn', 'add-button');
+      deleteButton.addEventListener('click', function () {
+          const addedEmployeeSectionsContainer = document.getElementById('added_employee_sections_container');
+          addedEmployeeSectionsContainer.removeChild(addedEmployeeSectionsContainer.lastChild);
+      });
+      employeeFormSection.appendChild(deleteButton);
+      const addedEmployeeSectionsContainer = document.getElementById('added_employee_sections_container');
+      addedEmployeeSectionsContainer.appendChild(employeeFormSection);
+  });
+</script>
+
+</span>
+  </span>
+</section>
+
+
+
+<section>
+    <div class="divider" data-component="divider"
+         style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
+    </div>
+    <h2>For Startups</h2>
+    <label for="application_description" style="font-size: 17px;">Application Description:</label>
+    <textarea cols="50" id="application_description" name="application_description" ></textarea>
+    <button onclick="window.location.href = 'profile.html';" class="btn submit-btn">Submit</button>
+</section>
+
+</form>
+
+
+<footer>
+    <p class="btn-sm contact-section">Contact us: contact@example.com</p>
+    <button type="button" class="btn" onclick="submitForm()">Submit</button>
+</footer>
+<script>
+    function toggleMode() {
+        const options = {
+            bottom: '100px',
+            right: '0px',
+            left: 'unset',
+            time: '0.3s',
+            mixColor: '#fff',
+            backgroundColor: '#fff',
+            buttonColorDark: '#100f2c',
+            buttonColorLight: '#fff',
+            saveInCookies: true,
+            label: '🌓',
+            autoMatchOsTheme: true
+        }
+
+        new Darkmode(options).showWidget();
+    }
+    </script>
+
+    </section>
+    </form>
+
+    </html>

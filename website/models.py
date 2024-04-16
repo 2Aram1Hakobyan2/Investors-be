@@ -64,3 +64,20 @@ class Expertise(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     # Define other fields as needed
   
+class Startup(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150))
+    logo = db.Column(db.String(150))  # You can store the path to the logo image file
+    description = db.Column(db.Text)
+    country = db.Column(db.String(100))
+    city = db.Column(db.String(100))
+
+class Business(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    total_fund = db.Column(db.Float)  # Storing as float assuming it represents monetary values
+    average_check = db.Column(db.Float)
+    max_check = db.Column(db.Float)
+
+class Interest(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150))

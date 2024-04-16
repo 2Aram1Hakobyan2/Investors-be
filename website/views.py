@@ -36,7 +36,7 @@ def delete_note():
 
     return jsonify({})
 
-@views.route('/user-profile')
+@views.route('/user-profile-edit')
 @login_required
 def user_profile():
     return render_template("user/yanifinal.html", user=current_user)
@@ -46,12 +46,22 @@ from datetime import datetime
 @views.route('/startup-profile')
 @login_required
 def startup_profile():
-    return render_template("user/startup profile.html", user=current_user)
+    return render_template("user/profile startup.html", user=current_user)
 
 @views.route('/investor-profile')
 @login_required
 def investor_profile():
     return render_template("user/profile.html", user=current_user)
+
+@views.route('/investor-add')
+@login_required
+def investor_profile_add():
+    return render_template("user/index.html")
+
+@views.route('/startup-add')
+@login_required
+def startup_profile_add():
+    return render_template("user/startup profile.html", user=current_user)
 
 @views.route('/add-experience', methods=['POST'])
 @login_required
