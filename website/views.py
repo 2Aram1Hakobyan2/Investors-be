@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Education, Experience, Expertise, Note, Startup, User
+from .models import Business, Education, Experience, Expertise, Note, Startup, User
 from . import db
 import json
 
@@ -145,11 +145,11 @@ from flask import request
 @login_required
 def add_business():
     if request.is_json:
-        business_data = request.json
-        total_fund = business_data.get('total_fund')
-        average_check = business_data.get('average_check')
-        max_check = business_data.get('max_check')
-        print("JSON Data:", business_data)
+        businessData = request.json
+        total_fund = businessData.get('total_fund')
+        average_check = businessData.get('average_check')
+        max_check = businessData.get('max_check')
+        print("JSON Data:", businessData)
     else:
         total_fund = request.form.get('total_fund')
         average_check = request.form.get('average_check')

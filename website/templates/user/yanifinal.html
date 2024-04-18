@@ -7,29 +7,90 @@
     <title>User Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/darkmode-js/css/darkmode.min.css">
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js"></script>
-    <script src="mysrc.js"></script>
+    <script src="cities2/mysrc.js"></script>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff; /* White background */
+            background-color: #f2f2f2;
             margin: 0;
             padding: 0;
             color: #000; 
+            height: 2390px;
         }
         header {
-            background-color: #6a5acd; /* Header background color */
+            background-color: #6a5acd; 
             color: white;
             padding: 20px;
             text-align: center;
         }
-        .btn-container {
-            text-align: left; /* Align buttons to the left */
-            margin-top: 20px; /* Add margin from the top */
-            margin-left: 20px; /* Adjust left margin */
+        section {
+            background-color: #fff; 
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        footer {
+           background-color: #191970; 
+            color: white;
+            text-align: center;
+            padding: -5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #lastName{
+            margin-left: -50px;
+            text-align: left;
+            
+        }
+        #lastnameid{
+            text-align: left;
+            margin-left: -45px;
+        }
+    
+        #city1{
+            text-align: left;
+            margin-left: -45px;
+        }
+       .input-container {
+            display: inline-block; /* Display containers inline */
+            margin-right: -505px; 
+            margin-left: 0px;
+            margin-bottom: 5px; /* Adjust margin */
+            box-sizing: border-box; /* Include padding and border in the width */
+            padding: 3px;
+            width: 50%; /* Ensure the container spans the entire width */
+            text-align: left;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .disp{
+            display: inline-block;
+        }
+        .form-input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        #currentlyWorkHere {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: -50px; 
+        }
+        #currentlyStudyHere {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: -50px; 
         }
         .btn {
-            background-color: #00008b; 
+           background-color: #00008b; 
             color: white;
             padding: 10px 20px;
             border: none;
@@ -45,9 +106,59 @@
         .btn:hover {
             background-color: #0000cd; 
         }
-        .last-btn {
-            text-align: center; /* Align last button to center */
-            margin-top: 20px; /* Add margin from the top */
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 20%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .add-button {
+            background-color: #6a5acd; /* Light purple */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        .add-button:hover {
+            background-color: #483d8b; /* Dark blue */
+        }
+        #end{
+            margin-left: -70px;
+        }
+        #eduEnd {
+            margin-left: -70px;
+        }
+        #endlabel{
+            text-align: left;
+            margin-left: -70px;
+        }
+        #endlabel1{
+            text-align: left;
+            margin-left: -70px;
+        }
+        #city2{
+            text-align: left;
+            margin-left: -45px;
+        }
+        #citySelect1{
+            margin-left: -50px;
+        }
+        #citySelect2{
+            margin-left: -50px;
+        }
+        #certification{
+            margin-left: -50px;
+        }
+        #certificationType{
+            margin-left: -50px;
         }
     </style>
 </head>
@@ -68,13 +179,13 @@
     <h2>About</h2>
     <form>
         <div class="input-container">
-        <label class="form-label" for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" class="form-input" value="{{ user.first_name }}" readonly><br>
+            <label class="form-label" for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" class="form-input" value="{{ user.first_name }}" readonly><br>
         </div>
 
         <div class="input-container">
             <label class="form-label" for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="last_Name" class="form-input"><br>
+            <input type="text" id="lastName" name="lastName" class="form-input"><br>
         </div>
 
         <label class="form-label" for="about">About:</label>
@@ -91,135 +202,189 @@
         </select><br>
 
         <div class="input-container">
-            <label class="form-label" for="country">Country:</label>
-        <input type="text" id="country" name="country" class="form-input"><br>
+            <label class="form-label" for="countrySelect">Country:</label>
+            <select  type="text" id="country" name="country" class="form-input" onchange="populateCities()">
                 <option value="">Select Country</option>
             </select>
         </div>
-        
-        <label class="form-label" for="city">City:</label>
-        <input type="text" id="city" name="city" class="form-input" onchange="populateCities()"><br>
-        
-        <script>
-            function populateCities() {
-                var countrySelect = document.getElementById("countrySelect");
-                var cityInput = document.getElementById("city");
-        
-                // Clear previous city options (not needed for text input)
-                // citySelect.innerHTML = '<option value="">Select City</option>';
-        
-                // Get the selected country
-                var selectedCountry = countrySelect.value;
-                // Call the function to populate cities with the selected country
-                city(selectedCountry, cityInput);
-            }
-        </script>
-        
+
+        <div class="input-container">
+            <label class="form-label" for="citySelect">City:</label>
+            <select id="citySelect1" type="text" id="city" name="city" class="form-input" onchange="populateCities()">
+                <option value="">Select City</option>
+            </select>
+        </div>
 
         <label class="form-label" for="linkedin">LinkedIn:</label>
         <input type="text" id="linkedin" name="linkedin" class="form-input"><br>
 
         <label class="form-label" for="email">Email:</label>
         <input type="email" id="email" name="email" class="form-input" value="{{ user.email }}" readonly><br>
-
         <br> 
     </form>
 </section>
 
+<script>
+    var countries = [
+        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+        "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+        "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+        "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Côte D'Ivoire",
+        "Croatia", "Cuba", "Cyprus", "Czechia", "Democratic People's Republic of Korea", "Democratic Republic of the Congo", "Denmark", "Djibouti",
+        "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+        "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea Bissau",
+        "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan",
+        "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Lao People’s Democratic Republic", "Latvia", "Lebanon", "Lesotho",
+        "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands",
+        "Mauritania", "Mauritius", "Mexico", "Micronesia", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
+        "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama",
+        "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of Korea", "Republic of Moldova", "Romania",
+        "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+        "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
+        "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syrian Arab Republic", "Tajikistan", "Thailand", "Timor-Leste",
+        "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Türkiye", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom(UK)",
+        "United Republic of Tanzania", "United States of America(USA)", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Viet Nam", "Yemen", "Zambia", "Zimbabwe"
+    ];
+
+    function populateCountries() {
+    var countrySelect = document.getElementById("countrySelect1");
+    countries.forEach(function(country) {
+        var option = document.createElement("option");
+        option.text = country;
+        option.value = country;
+        countrySelect.add(option);
+    });
+}
+
+    function populateCities() {
+        var countrySelect = document.getElementById("countrySelect1");
+        var citySelect = document.getElementById("citySelect1");
+        citySelect.innerHTML = '<option value="">Select City</option>';
+        var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
+        citySelect.innerHTML = '<option value="">Select City</option>';
+        var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
+        city(selectedCountry, citySelect)
+    }
+
+    window.onload = function () {
+        populateCountries();
+    };
+
+    document.getElementById('currentlyWorkHere').addEventListener('change', function () {
+        var endWrapper = document.getElementById('endWrapper');
+        if (this.checked) {
+            endWrapper.style.display = 'none';
+        } else {
+            endWrapper.style.display = 'inline-block';
+        }
+    });
+</script>
 
 
-<section id="experience">
-    <h2>Experience</h2>
-    <form>
-        <div class="experience-entry">
-            <label class="form-label" for="company">Company:</label>
-            <input type="text" id="company" name="company" class="form-input"><br>
 
-            <label class="form-label" for="position">Position:</label>
-            <input type="text" id="position" name="position" class="form-input"><br>
-
-            <label class="form-label" for="positionDescription">Position Description:</label>
-            <textarea id="positionDescription" name="positionDescription" class="form-input"></textarea><br>
-
-            <div class="input-container">
-            <label class="form-label" for="start">Start:</label>
-            <input type="date" id="start" name="start" class="form-input">
+       <section id="experience">
+        <h2>Experience</h2>
+        <form>
+            <div class="experience-entry">
+                <label class="form-label" for="company">Company:</label>
+                <input type="text" id="company" name="company" class="form-input"><br>
+    
+                <label class="form-label" for="position">Position:</label>
+                <input type="text" id="position" name="position" class="form-input"><br>
+    
+                <label class="form-label" for="positionDescription">Position Description:</label>
+                <textarea id="positionDescription" name="positionDescription" class="form-input"></textarea><br>
+    
+                <div class="input-container">
+                    <label class="form-label" for="start">Start:</label>
+                    <input type="date" id="start" name="start" class="form-input">
+                </div>
+    
+                <div class="input-container">
+                    <input type="checkbox" id="currentlyWorkHere" name="currentlyWorkHere" value="notchecked">
+                    <label for="currentlyWorkHere">I currently work here</label><br>
+                </div>
+    
+                <div id="endWrapper" class="input-container">
+                    <label class="form-label" for="end" id="endlabel">End:</label>
+                    <input type="date" id="end" name="end" class="form-input">
+                </div><br>
+    
+                <div class="input-container">
+                    <label class="form-label" for="countrySelect">Country:</label>
+                    <select id="countrySelect2" name="countrySelect" class="form-input" onchange="populateCities()">
+                        <option value="">Select Country</option>
+                    </select>
+                </div>
+    
+                <div class="input-container">
+                    <label class="form-label" for="citySelect">City:</label>
+                    <select id="citySelect2" name="citySelect" class="form-input">
+                        <option value="">Select City</option>
+                    </select>
+                </div>
             </div>
-
-            <div class="input-container">
-            <input type="checkbox" id="currentlyWorkHere" name="currentlyWorkHere" value="notchecked">
-            <label for="currentlyWorkHere"> I currently work here</label><br>
-            </div>
-
-            <div id="endWrapper"  class="input-container">
-                <label class="form-label" for="end" id="endlabel">End:</label>
-                <input type="date" id="end" name="end" class="form-input">
-            </div><br>
-
-            <div class="input-container">
-                <label class="form-label" for="countrySelect">Country:</label>
-                <select id="countrySelect2" name="countrySelect" class="form-input" onchange="populateCities2()">
-                    <option value="">Select Country</option>
-                    <!-- Your JavaScript will populate the options dynamically -->
-                </select>
-            </div>
-            
-            <script>
-                // Array of countries
-                var countries = [
-                    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
-                    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
-                    "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
-                    "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Côte D'Ivoire",
-                    "Croatia", "Cuba", "Cyprus", "Czechia", "Democratic People's Republic of Korea", "Democratic Republic of the Congo", "Denmark", "Djibouti",
-                    "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
-                    "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea Bissau",
-                    "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan",
-                    "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Lao People’s Democratic Republic", "Latvia", "Lebanon", "Lesotho",
-                    "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands",
-                    "Mauritania", "Mauritius", "Mexico", "Micronesia", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
-                    "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama",
-                    "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of Korea", "Republic of Moldova", "Romania",
-                    "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
-                    "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
-                    "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syrian Arab Republic", "Tajikistan", "Thailand", "Timor-Leste",
-                    "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Türkiye", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom(UK)",
-                    "United Republic of Tanzania", "United States of America(USA)", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Viet Nam", "Yemen", "Zambia", "Zimbabwe"
-                ];
-            
-                // Function to populate the select element with countries
-                function populateCountries() {
-                    var countrySelect = document.getElementById("countrySelect2");
-            
-                    // Clear previous options
-                    countrySelect.innerHTML = '<option value="">Select Country</option>';
-            
-                    // Add options for each country
-                    countries.forEach(function(country) {
-                        var option = document.createElement("option");
-                        option.text = country;
-                        option.value = country;
-                        countrySelect.add(option);
-                    });
-                }
-            
-                // Call the function to populate countries when the page loads
-                window.onload = function() {
-                    populateCountries();
-                };
-            
-                // Function to populate cities based on the selected country
-                function populateCities2() {
-                    // Your code to populate cities based on the selected country goes here
-                }
-            </script>
-            
-
-            <div class="input-container">
-                <label class="form-label" for="cityInput2">City:</label>
-                <input type="text" id="cityInput2" name="cityInput" class="form-input" placeholder="Enter City">
-            </div>
-
+        </form>
+    
+        <button type="button" class="add-button" onclick="addExperience()">Add Experience</button>
+    </section>
+    
+    <script>
+        var countries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+            "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
+            "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+            "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Côte D'Ivoire",
+            "Croatia", "Cuba", "Cyprus", "Czechia", "Democratic People's Republic of Korea", "Democratic Republic of the Congo", "Denmark", "Djibouti",
+            "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+            "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea Bissau",
+            "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan",
+            "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Lao People’s Democratic Republic", "Latvia", "Lebanon", "Lesotho",
+            "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands",
+            "Mauritania", "Mauritius", "Mexico", "Micronesia", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
+            "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama",
+            "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Republic of Korea", "Republic of Moldova", "Romania",
+            "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+            "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa",
+            "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syrian Arab Republic", "Tajikistan", "Thailand", "Timor-Leste",
+            "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Türkiye", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom(UK)",
+            "United Republic of Tanzania", "United States of America(USA)", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Viet Nam", "Yemen", "Zambia", "Zimbabwe"
+        ];
+    
+        function populateCountries() {
+            var countrySelect = document.getElementById("countrySelect2");
+            countrySelect.innerHTML = '<option value="">Select Country</option>';
+            countries.forEach(function (country) {
+                var option = document.createElement("option");
+                option.text = country;
+                option.value = country;
+                countrySelect.add(option);
+            });
+        }
+    
+        function populateCities() {
+            var countrySelect = document.getElementById("countrySelect2");
+            var citySelect = document.getElementById("citySelect2");
+            citySelect.innerHTML = '<option value="">Select City</option>';
+            var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
+            // Here you should call your function to populate cities based on the selected country
+            // Example: city(selectedCountry, citySelect);
+        }
+    
+        window.onload = function () {
+            populateCountries();
+        };
+    
+        document.getElementById('currentlyWorkHere').addEventListener('change', function () {
+            var endWrapper = document.getElementById('endWrapper');
+            if (this.checked) {
+                endWrapper.style.display = 'none';
+            } else {
+                endWrapper.style.display = 'inline-block';
+            }
+        });
+    </script>
+    
 
         <script>
             function populateCities2() {
@@ -236,7 +401,6 @@
         </div>
 
      </div>
-     <button type="button" class="add-button" onclick="addExperience()">Add Experience</button>
     </form>
 </section>
 
@@ -485,12 +649,24 @@ function addEducation() {
     });
 }
 
-function addSkill() {
-    const skillData = {
-        // You may need to adjust this depending on how you want to handle skills
-        skills: document.getElementById("skill").value,
-    };
+var skillCount = 1;
 
+function addSkill() {
+    skillCount++;
+    var skillContainer = document.getElementById('Skill-container');
+    var newInput = document.createElement('input');
+    newInput.classList.add("disp");
+    newInput.classList.add("form-input");
+    newInput.style.width = "10%";
+    newInput.type = 'text';
+    newInput.id = 'skill' + skillCount;
+    newInput.name = 'skill' + skillCount;
+    newInput.placeholder = 'Skill ' + skillCount; 
+    newInput.style.marginRight = '5px';
+    //newInput.style.marginTop = '5px';
+    //newInput.style.marginBottom = '20px';
+    skillContainer.appendChild(newInput);
+}
     fetch('/add-skill', {
         method: 'POST',
         headers: {
@@ -510,7 +686,6 @@ function addSkill() {
         // Handle error, show an alert, etc.
         alert('Failed to add skill data');
     });
-}
 
 function saveProfile() {
     console.log('saveProfile function called');
