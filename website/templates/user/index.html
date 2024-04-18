@@ -10,7 +10,6 @@
     <title>Investor Form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/darkmode-js/css/darkmode.min.css">
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js"></script>
-    <script src="mysrc.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -163,25 +162,28 @@
 
 <section id="about">
     <h2>About</h2>
-    <form>
+    <form id="aboutForm">
         <div class="input-container">
             <label class="form-label" for="Name">Name:</label>
-            <input type="text" id="startuptName" name="startupName" class="form-input" style.margin-buttom= "5px"><br><br>
+            <input type="text" id="startupName" name="startupName" class="form-input" style="margin-bottom: 5px;"><br><br>
 
-        <label class="form-label" for="logo">Logo:</label>
-        <input type="file" id="logo" name="logo"><br><br>
+            <label class="form-label" for="logo">Logo:</label>
+            <input type="file" id="logo" name="logo"><br><br>
 
-        <label class="form-label" for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" cols="50" class="form-input"></textarea><br><br>
+            <label class="form-label" for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" cols="50" class="form-input"></textarea><br><br>
 
-
-        <form>
             <label class="form-label form-label-top form-label-auto" for="country_selection" id="country_selection_label">Country:</label>
-            <input type="text" id="country_selection" name="country_selection" placeholder="Enter country" class="form-input"  style.margin-buttom= "5px" />
+            <input type="text" id="country_selection" name="country_selection" placeholder="Enter country" class="form-input" style="margin-bottom: 5px;">
         
             <label class="form-label form-label-top form-label-auto" for="city_selection" id="city_selection_label">City:</label>
-            <input type="text" id="city_selection" name="city_selection" placeholder="Enter city" class="form-input"  style.margin-buttom= "5px"/>
-        </form>
+            <input type="text" id="city_selection" name="city_selection" placeholder="Enter city" class="form-input" style="margin-bottom: 5px;">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="button" class="add-button" onclick="addStartup()">Submit</button>
+    </form>
+</section>
         
 </body>
 </div>
@@ -340,15 +342,8 @@
 
 
 
-    <script>
-      document.getElementById('send_invite_button').addEventListener('click', function () {
-          const emailInput = document.getElementById('email').value;
-          const accName = document.getElementById('name').textContent;
 
-          const invitationMessage = `Hello, You are invited to the platform by ${name}  as a Fund Manager.Click here to approve it. If this email is sent by mistake, please ignore it.`;
 
-      });
-    </script>
 
 
 
@@ -511,9 +506,16 @@
 
 
 <footer>
+    <button type="button" class="close-btn" onclick="closeFooter()">X</button>
     <p class="btn-sm contact-section">Contact us: contact@example.com</p>
     <button type="button" class="btn" onclick="submitForm()">Submit</button>
 </footer>
+<script>
+    function closeFooter() {
+        var footer = document.querySelector('footer');
+        footer.style.display = 'none';
+    }
+</script>
 <script>
     function toggleMode() {
         const options = {
@@ -532,6 +534,69 @@
 
         new Darkmode(options).showWidget();
     }
+
+    function addStartup() {
+    const startupData = {
+        startupName: document.getElementById("startupName").value,
+        description: document.getElementById("description").value,
+        country_selection: document.getElementById("country_selection").value,
+        city_selection: document.getElementById("city_selection").value
+    };
+
+    fetch('/add-startup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(startupData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add startup');
+        }
+        // Reset form fields or perform any other necessary actions
+        document.getElementById("startupName").value = '';
+        document.getElementById("description").value = '';
+        document.getElementById("country_selection").value = '';
+        document.getElementById("city_selection").value = '';
+    })
+    .catch(error => {
+        console.error('Error adding startup:', error);
+        // Handle error, show an alert, etc.
+        alert('Failed to add startup');
+    });
+}
+
+function addBusiness() {
+    const businessData = {
+        total_fund: parseFloat(document.getElementById("total_fund").value),
+        average_check: parseFloat(document.getElementById("average_check").value),
+        max_check: parseFloat(document.getElementById("max_check").value)
+    };
+
+    fetch('/add-business', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(businessData),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add business');
+        }
+        // Reset form fields or perform any other necessary actions
+        document.getElementById("total_fund").value = '';
+        document.getElementById("average_check").value = '';
+        document.getElementById("max_check").value = '';
+    })
+    .catch(error => {
+        console.error('Error adding business:', error);
+        // Handle error, show an alert, etc.
+        alert('Failed to add business');
+    });
+}
+
     </script>
 
     </section>

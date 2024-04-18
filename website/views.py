@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Education, Experience, Expertise, Note, User
+from .models import Education, Experience, Expertise, Note, Startup, User
 from . import db
 import json
 
@@ -109,6 +109,61 @@ def add_education():
     db.session.add(new_education)
     db.session.commit()
     return jsonify({'message': 'Education data added successfully'})
+
+from flask import request, jsonify
+
+@views.route('/add-startup', methods=['POST'])
+@login_required
+def add_startup():
+    # Check if request contains JSON data
+    if request.is_json:
+        startupData = request.json
+        name = startupData['startupName']
+        description = startupData['description']
+        country = startupData['country_selection']
+        city = startupData['city_selection']
+        print("JSON Data:", startupData)
+
+    else:
+        name = request.form['startupName']
+        description = request.form['description']
+        country = request.form['country_selection']
+        city = request.form['city_selection']
+
+    # Create a new Startup instance
+    new_startup = Startup(name=name, description=description, country=country, city=city)
+    
+    # Add and commit the new instance to the database
+    db.session.add(new_startup)
+    db.session.commit()
+
+    return 'Startup added successfully'
+
+from flask import request
+
+@views.route('/add-business', methods=['POST'])
+@login_required
+def add_business():
+    if request.is_json:
+        business_data = request.json
+        total_fund = business_data.get('total_fund')
+        average_check = business_data.get('average_check')
+        max_check = business_data.get('max_check')
+        print("JSON Data:", business_data)
+    else:
+        total_fund = request.form.get('total_fund')
+        average_check = request.form.get('average_check')
+        max_check = request.form.get('max_check')
+
+    # Create a new Business instance
+    new_business = Business(total_fund=total_fund, average_check=average_check, max_check=max_check)
+    
+    # Add and commit the new instance to the database
+    db.session.add(new_business)
+    db.session.commit()
+
+    return 'Business added successfully'
+
 
 @views.route('/add-skill', methods=['POST'])
 @login_required
